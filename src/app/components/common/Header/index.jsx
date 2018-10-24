@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import PT from 'prop-types';
 
 import Container from 'common/Container';
 import { Navigation, Name, Letter } from './styled';

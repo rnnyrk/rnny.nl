@@ -19,5 +19,9 @@ export default createGlobalStyle`
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: ${theme.white.light};
+
+    &.scrolled {
+      padding-top: 40px;
+    }
   }
 `;

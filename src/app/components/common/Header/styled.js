@@ -6,7 +6,10 @@ export const Navigation = styled.nav`
   width: 100vw;
   padding: 20px 30px;
 
-  ${(props) => props.active && css`
+  ${(props) => props.scrolled && css`
+    position: fixed;
+    top: 0;
+    left: 0;
     background: ${(props) => props.theme.white};
     box-shadow: 0 5px 10px rgba(0, 0, 0, .05);
   `}

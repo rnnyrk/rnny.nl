@@ -5,6 +5,7 @@ export const Navigation = styled.nav`
   justify-content: space-between;
   width: 100vw;
   padding: 20px 30px;
+  margin-bottom: 40px;
 
   ${(props) => props.scrolled && css`
     position: fixed;

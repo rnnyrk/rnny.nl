@@ -18,6 +18,7 @@ const Nav = ({ scrolledPage }) => (
         <Letter visible={scrolledPage}>o</Letter>
         <Letter visible={scrolledPage}>o</Letter>
         <Letter>k</Letter>
+        <Letter visible={!scrolledPage}>/</Letter>
         <Letter visible={!scrolledPage} dangerouslySetInnerHTML={{ __html: '>' }} />
       </Name>
     </Container>

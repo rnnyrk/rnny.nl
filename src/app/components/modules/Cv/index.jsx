@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
 
+import { AnchorButton } from 'common/Button';
 import Container from 'common/Container';
 
 class Cv extends PureComponent {
@@ -8,7 +8,7 @@ class Cv extends PureComponent {
     return (
       <Container>
         <div>Cv</div>
-        <Link to="/">Home</Link>
+        <AnchorButton to="/">Home</AnchorButton>
       </Container>
     );
   }

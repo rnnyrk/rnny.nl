@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export default styled.button`
+export const Button = styled.button`
   color: ${(props) => props.theme.white};
   background: ${(props) => props.theme.blue};
   border: none;
@@ -9,4 +10,8 @@ export default styled.button`
   outline: none;
   border-radius: 5px;
   cursor: pointer;
+`;
+
+export const AnchorButton = styled(Button).attrs({ as: Link })`
+  text-decoration: none;
 `;

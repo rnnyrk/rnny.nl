@@ -43,8 +43,8 @@ class App extends PureComponent {
           <Header scrolledPage={scrolledPage} />
           <Suspense fallback={<Loading>Loading...</Loading>}>
             <Switch>
-              <Route path="/" component={Home} exact />
-              <Route path="/cv" component={Cv} />
+              <Route exact path="/" component={(props) => <Home {...props} />} />
+              <Route path="/cv" component={(props) => <Cv {...props} />} />
             </Switch>
           </Suspense>
         </main>

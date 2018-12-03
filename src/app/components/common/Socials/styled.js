@@ -2,6 +2,10 @@ import styled, { css } from 'styled-components';
 import { media } from 'styles/utils';
 import PT from 'prop-types';
 
+export const Wrapper = styled.div`
+  display: flex;
+`;
+
 export const SocialLink = styled.a.attrs(({ href }) => ({
   target: '_blank',
   rel: 'noopener noreferrer',

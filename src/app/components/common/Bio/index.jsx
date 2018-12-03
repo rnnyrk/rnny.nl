@@ -6,8 +6,8 @@ const Bio = () => (
   <Wrapper>
     <Image />
     <Content>
-      <BioTitle center>Hi, I'm Ronny Rook</BioTitle>
-      <p>Feel free to send me a message.</p>
+      <BioTitle>Hi, I'm Ronny Rook</BioTitle>
+      <p>Here you can find what's on my mind.</p>
     </Content>
   </Wrapper>
 );

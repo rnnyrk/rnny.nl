@@ -4,10 +4,11 @@ import { media } from 'styles/utils';
 
 export const Card = styled.div`
   flex-basis: 100%;
+  min-height: 200px;
   padding: 20px;
+  margin-bottom: 20px;
   color: ${(props) => props.theme.white};
   cursor: pointer;
-  border-radius: 10px;
   background: linear-gradient(100deg, ${(props) => props.colors[0]} 0%, ${(props) => props.colors[1]} 100%);
   box-shadow: 0 5px 10px rgba(0, 0, 0, .05);
 

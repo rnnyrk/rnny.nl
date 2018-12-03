@@ -1,5 +1,13 @@
 import styled, { css } from 'styled-components';
 
+import Container from 'common/Container';
+
+export const HeaderContainer = styled(Container)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const Navigation = styled.nav`
   display: flex;
   justify-content: space-between;

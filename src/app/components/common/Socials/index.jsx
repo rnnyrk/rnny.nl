@@ -3,10 +3,10 @@ import React from 'react';
 import TwitterIcon from 'vectors/twitter.svg';
 import LinkedinIcon from 'vectors/linkedin.svg';
 
-import { SocialLink } from './styled';
+import { SocialLink, Wrapper } from './styled';
 
 const Socials = () => (
-  <>
+  <Wrapper>
     <SocialLink
       href="https://twitter.com/rnnyrk"
       type="twitter"
@@ -19,7 +19,7 @@ const Socials = () => (
     >
       <LinkedinIcon />
     </SocialLink>
-  </>
+  </Wrapper>
 );
 
 export default Socials;

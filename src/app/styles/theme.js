@@ -1,5 +1,10 @@
 export default {
-  blue: '#3498db',
+  blue: Object.assign(
+    '#5092fc',
+    {
+      dark: '#2164d1',
+    },
+  ),
   white: Object.assign(
     '#ffffff',
     {

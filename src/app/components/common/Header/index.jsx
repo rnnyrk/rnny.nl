@@ -1,12 +1,13 @@
 import React from 'react';
 import PT from 'prop-types';
 
-import Container from 'common/Container';
-import { Navigation, Name, Letter } from './styled';
+import Socials from 'common/Socials';
+
+import { HeaderContainer, Letter, Navigation, Name } from './styled';
 
 const Nav = ({ scrolledPage }) => (
   <Navigation scrolled={scrolledPage}>
-    <Container>
+    <HeaderContainer>
       <Name>
         <Letter visible={!scrolledPage} dangerouslySetInnerHTML={{ __html: '<' }} />
         <Letter>r</Letter>
@@ -21,7 +22,9 @@ const Nav = ({ scrolledPage }) => (
         <Letter visible={!scrolledPage}>/</Letter>
         <Letter visible={!scrolledPage} dangerouslySetInnerHTML={{ __html: '>' }} />
       </Name>
-    </Container>
+
+      <Socials />
+    </HeaderContainer>
   </Navigation>
 );
 

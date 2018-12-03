@@ -1,15 +1,15 @@
 import React from 'react';
 
+import { AnchorButton } from 'common/Button';
+import Bio from 'common/Bio';
 import Cards from 'common/Cards';
 import Container from 'common/Container';
-import { AnchorButton } from 'common/Button';
-import { IntroTitle } from './styled';
 
 const Home = () => (
   <>
     <Container>
-      <IntroTitle center>Hi, I'm Ronny</IntroTitle>
-      <p>Nullam quis risus eget urna mollis ornare vel eu leo. Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+      <Bio />
+      <p>Front-end developer from the Netherlands, based in Amsterdam. I've got a passion to build awesome applications for the web. I like using techniques such as React (Native), Progressive Web Apps, Styled Components and I got a big interest for performance.</p>
     </Container>
     <Cards />
     <Container>

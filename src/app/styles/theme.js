@@ -3,7 +3,7 @@ export default {
   white: Object.assign(
     '#ffffff',
     {
-      light: '#f4f4f4',
+      off: '#f4f4f4',
     },
   ),
 };

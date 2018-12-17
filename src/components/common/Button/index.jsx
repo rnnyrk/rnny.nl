@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { media } from 'styles/utils';
 import { Link } from 'react-router-dom';
 
-export const Button = styled.button`
+export const AnchorButton = styled(Link)`
   display: inline-block;
   min-width: 100px;
   padding: 20px 30px;
@@ -12,6 +12,7 @@ export const Button = styled.button`
   text-align: center;
   color: ${(props) => props.theme.white};
   background: ${(props) => props.theme.blue};
+  text-decoration: none;
 
   ${media.desktop`
     transition: background .2s ease-in;
@@ -22,6 +23,6 @@ export const Button = styled.button`
   `}
 `;
 
-export const AnchorButton = styled(Button).attrs({ as: Link })`
-  text-decoration: none;
+export const Button = styled(AnchorButton).attrs({ as: 'button' })`
+
 `;

@@ -1,12 +1,13 @@
-const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const paths = require('./paths');
 
 const baseConfig = {
   mode: 'production',
   output: {
-    filename: '[name].[hash].js',
-    path: path.join(__dirname, 'dist'),
+    filename: 'static/js/[name].[hash].js',
+    path: paths.resolveRoot('dist'),
     publicPath: '/',
   },
   module: {
@@ -60,10 +61,11 @@ const baseConfig = {
     ],
   },
   plugins: [
+    new CopyWebpackPlugin(['./public']),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './src/server/template.ejs'),
+      template: paths.resolveSrc('template.ejs'),
       filename: 'index.html',
-      favicon: path.resolve(__dirname, './src/app/static/favicon.ico'),
+      chunksSortMode: 'none',
     }),
   ],
   optimization: {
@@ -80,18 +82,17 @@ const baseConfig = {
   resolve: {
     extensions: ['*', '.js', '.jsx'],
     alias: {
-      app: path.resolve(__dirname, './src/app'),
-      common: path.resolve(__dirname, './src/app/components/common'),
-      components: path.resolve(__dirname, './src/app/components'),
-      config: path.resolve(__dirname, './src/config'),
-      ducks: path.resolve(__dirname, './src/app/ducks'),
-      fonts: path.resolve(__dirname, './src/app/static/fonts'),
-      images: path.resolve(__dirname, './src/app/static/images'),
-      modules: path.resolve(__dirname, './src/app/components/modules'),
-      server: path.resolve(__dirname, './src/server'),
-      services: path.resolve(__dirname, './src/app/services'),
-      styles: path.resolve(__dirname, './src/app/styles'),
-      vectors: path.resolve(__dirname, './src/app/static/vectors'),
+      app: paths.resolveSrc(),
+      common: paths.resolveSrc('components/common'),
+      components: paths.resolveSrc('components'),
+      config: paths.resolveSrc('config'),
+      ducks: paths.resolveSrc('ducks'),
+      fonts: paths.resolveSrc('static/fonts'),
+      images: paths.resolveSrc('static/images'),
+      modules: paths.resolveSrc('components/modules'),
+      services: paths.resolveSrc('services'),
+      styles: paths.resolveSrc('styles'),
+      vectors: paths.resolveSrc('static/vectors'),
     },
   },
 };

@@ -3,16 +3,16 @@ import React, { PureComponent } from 'react';
 import { PageLink } from 'common/Button';
 import Container from 'common/Container';
 
-class Cv extends PureComponent {
+class Work extends PureComponent {
   render() {
     return (
       <Container>
-        <div>Cv</div>
-        <PageLink to="/work">Work</PageLink>
-        <PageLink to="/" variant="right">Home</PageLink>
+        <div>Work</div>
+        <PageLink to="/">Home</PageLink>
+        <PageLink to="/cv" variant="right">CV</PageLink>
       </Container>
     );
   }
 }
 
-export default Cv;
+export default Work;

@@ -19,6 +19,7 @@ export const Navigation = styled.nav`
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1;
     background: ${(props) => props.theme.white};
     box-shadow: 0 5px 10px rgba(0, 0, 0, .05);
   `}

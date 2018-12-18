@@ -11,5 +11,6 @@ export const CardsContainer = styled(Container)`
   ${media.desktop`
     flex-wrap: wrap;
     max-width: 48em;
+    margin: 30px auto;
   `}
 `;

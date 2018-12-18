@@ -18,10 +18,11 @@ export default createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: ${theme.white.light};
+    color: ${theme.black};
+    background: ${theme.white.off};
 
     &.scrolled {
-      padding-top: 73px;
+      padding-top: 100px;
     }
   }
 `;

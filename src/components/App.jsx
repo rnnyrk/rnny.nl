@@ -1,12 +1,15 @@
 import React, { PureComponent, lazy, Suspense } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
+import { PoseGroup } from 'react-pose';
 import GlobaStyle from 'styles';
 
 import Header from 'common/Header';
 import Loading from 'common/Loading';
+import RouteContainer from 'common/RouteContainer/styled';
 
 const Home = lazy(() => import('modules/Home'));
 const Cv = lazy(() => import('modules/Cv'));
+const Work = lazy(() => import('modules/Work'));
 
 class App extends PureComponent {
   state = {
@@ -42,10 +45,20 @@ class App extends PureComponent {
         <main>
           <Header scrolledPage={scrolledPage} />
           <Suspense fallback={<Loading>Loading...</Loading>}>
-            <Switch>
-              <Route exact path="/" component={(props) => <Home {...props} />} />
-              <Route path="/cv" component={(props) => <Cv {...props} />} />
-            </Switch>
+            <Route render={({ location }) => (
+              <PoseGroup preEnterPose="before">
+                <RouteContainer
+                  direction="left"
+                  key={location.pathname}
+                >
+                  <Switch location={location}>
+                    <Route path="/" component={(props) => <Home {...props} />} exact />
+                    <Route path="/cv" component={(props) => <Cv {...props} />} />
+                    <Route path="/work" component={(props) => <Work {...props} />} />
+                  </Switch>
+                </RouteContainer>
+              </PoseGroup>
+            )} />
           </Suspense>
         </main>
       </>

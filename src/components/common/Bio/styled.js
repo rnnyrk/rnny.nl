@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from 'styles/utils';
 import PT from 'prop-types';
 
 import Title from 'common/Title';
@@ -9,6 +10,10 @@ export const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   margin-bottom: 30px;
+
+  ${media.desktop`
+    margin: 20px 0 60px;
+  `}
 `;
 
 export const Content = styled.div`

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AnchorButton } from 'common/Button';
+import { PageLink } from 'common/Button';
 import Bio from 'common/Bio';
 import Container from 'common/Container';
 import Cards from 'modules/Cards';
@@ -17,8 +17,8 @@ const Home = () => (
       <p>Currently I'm working as a front-end developer within Label A. Within Label A we're building web-based applications for awesome clients. Check our website to find out more.</p>
       <p>I'm also available for freelance work. You can contact me if you're interested in building a website or a mobile- / web based application.</p>
       <p>You can check out my CV or some projects I've done below.</p>
-      <AnchorButton to="/cv">CV</AnchorButton>
-      <AnchorButton to="/work">Projects</AnchorButton>
+      <PageLink to="/cv">CV</PageLink>
+      <PageLink to="/work" variant="right">Projects</PageLink>
     </Container>
   </Page>
 );

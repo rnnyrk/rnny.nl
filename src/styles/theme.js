@@ -11,4 +11,5 @@ export default {
       off: '#f4f4f4',
     },
   ),
+  black: '#222222',
 };

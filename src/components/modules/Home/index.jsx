@@ -18,7 +18,7 @@ const Home = () => (
       <p>I'm also available for freelance work. You can contact me if you're interested in building a website or a mobile- / web based application.</p>
       <p>You can check out my CV or some projects I've done below.</p>
       <PageLink to="/cv">CV</PageLink>
-      <PageLink to="/work" variant="right">Projects</PageLink>
+      <PageLink to="/work" variant="right">Work</PageLink>
     </Container>
   </Page>
 );

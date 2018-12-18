@@ -34,7 +34,8 @@ export const Image = styled.figure`
   min-height: 75px;
   margin: 0 20px 0 0;
   border-radius: 50%;
-  background: ${(props) => props.theme.white.off} url(${(props) => props.src});
+  background: ${(props) => props.theme.white} url(${(props) => props.src});
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .05);
 `;
 
 Image.propTypes = {

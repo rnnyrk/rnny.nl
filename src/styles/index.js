@@ -22,7 +22,7 @@ export default createGlobalStyle`
     background: ${theme.white.off};
 
     &.scrolled {
-      padding-top: 73px;
+      padding-top: 100px;
     }
   }
 `;

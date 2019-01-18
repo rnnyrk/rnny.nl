@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import PT from 'prop-types';
+import React, { FunctionComponent, useState } from 'react';
 
 import useWindowScrollPosition from 'services/hooks/windowScroll';
 import Header from 'common/Header';
 
 import { PageContainer } from './styled';
 
-const Page = ({ children }) => {
+const Page:FunctionComponent<PageProps> = ({ children }) => {
   let [scrolled, setScrolled] = useState(false);
   const scrollY = useWindowScrollPosition();
 
@@ -26,8 +25,8 @@ const Page = ({ children }) => {
   );
 }
 
-Page.propTypes = {
-  children: PT.node.isRequired,
-};
+export interface PageProps {
+  children: Node,
+}
 
 export default Page;

@@ -2,7 +2,7 @@ import * as i from 'types';
 
 export interface Theme {
   black: string;
-  prime: string;
+  white: string;
 }
 
 export interface BaseStyled {

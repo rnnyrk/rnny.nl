@@ -2,7 +2,12 @@ import * as i from 'types';
 
 export interface Theme {
   black: string;
-  white: string;
+  purple: {
+    dark: string;
+  };
+  white: {
+    off: string;
+  };
   font: {
     poppins: string,
     space: string,

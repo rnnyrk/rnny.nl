@@ -7,7 +7,7 @@ const Dialog:FunctionComponent<DialogInterface> =
   ({ isOpen, onClose, children }) =>
 (
   <DialogContainer>
-    <TransitionGroup component={null}>
+    <TransitionGroup>
       {isOpen && (
         <CSSTransition
           classNames="dialog"

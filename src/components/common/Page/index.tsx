@@ -1,11 +1,15 @@
 import React, { FunctionComponent, useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import classNames from 'classnames';
 
 import useWindowScrollPosition from 'services/hooks/windowScroll';
 import Header from 'common/Header';
 
 import { PageContainer } from './styled';
 
-const Page:FunctionComponent<PageInterface> = ({ children }) => {
+const Page:FunctionComponent<PageInterface> =
+  ({ children, location: { state }, variant }) =>
+{
   let [scrolled, setScrolled] = useState(false);
   const scrollY = useWindowScrollPosition();
 
@@ -17,16 +21,33 @@ const Page:FunctionComponent<PageInterface> = ({ children }) => {
     document.body.classList.remove('scrolled');
   }
 
+  console.log('location', location);
+  console.log('location state', state);
+
+  const cx = classNames({
+    page: true,
+    'page--prev': true
+  });
+
   return (
-    <PageContainer>
+    <PageContainer
+      className={cx}
+      variant={variant}
+    >
       <Header scrolled={scrolled} />
-      {children}
+      <div className="page__inner">
+        {children}
+      </div>
     </PageContainer>
   );
 }
 
 export interface PageInterface {
   children: Node,
+  location: {
+    state: object;
+  };
+  variant?: string;
 }
 
-export default Page;
+export default withRouter(Page);

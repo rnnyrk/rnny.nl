@@ -5,7 +5,7 @@ import Page from 'common/Page';
 
 const About = () => {
   return (
-    <Page>
+    <Page variant="white">
       <PageLink to="/" variant="right">
         Home
       </PageLink>

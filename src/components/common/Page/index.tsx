@@ -25,8 +25,7 @@ const Page:FunctionComponent<PageInterface> =
   console.log('location state', state);
 
   const cx = classNames({
-    page: true,
-    'page--prev': true
+    page: true
   });
 
   return (

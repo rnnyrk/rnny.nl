@@ -1,19 +1,18 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import GlobalStyle from 'styles';
 
-const Home = lazy(() => import('modules/Home'));
-const About = lazy(() => import('modules/About'));
+import Home from 'modules/Home';
+import About from 'modules/About';
 
 const App = () => {
   return (
     <main>
       <GlobalStyle />
-      <Suspense fallback={<span>loading</span>}>
-        <Route render={({ location }) => {
+      <Route
+        render={({ location }) => {
           const { pathname, key } = location;
-          console.log(pathname, key);
 
           return (
             <TransitionGroup>
@@ -37,8 +36,8 @@ const App = () => {
               </CSSTransition>
             </TransitionGroup>
           );
-        }} />
-      </Suspense>
+        }}
+      />
     </main>
   );
 }

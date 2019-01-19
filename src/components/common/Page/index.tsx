@@ -1,8 +1,7 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { withRouter } from 'react-router-dom';
 import classNames from 'classnames';
 
-import useWindowScrollPosition from 'services/hooks/windowScroll';
 import Header from 'common/Header';
 
 import { PageContainer } from './styled';
@@ -10,22 +9,12 @@ import { PageContainer } from './styled';
 const Page:FunctionComponent<PageInterface> =
   ({ children, location: { state }, variant }) =>
 {
-  let [scrolled, setScrolled] = useState(false);
-  const scrollY = useWindowScrollPosition();
-
-  if (scrollY >= 10 && !scrolled) {
-    setScrolled(true);
-    document.body.classList.add('scrolled');
-  } else if (scrollY < 10 && scrolled) {
-    setScrolled(false);
-    document.body.classList.remove('scrolled');
-  }
-
   console.log('location', location);
   console.log('location state', state);
 
   const cx = classNames({
-    page: true
+    page: true,
+    'page--prev': state && state.prev,
   });
 
   return (
@@ -33,7 +22,7 @@ const Page:FunctionComponent<PageInterface> =
       className={cx}
       variant={variant}
     >
-      <Header scrolled={scrolled} />
+      <Header variant={variant} />
       <div className="page__inner">
         {children}
       </div>
@@ -44,7 +33,9 @@ const Page:FunctionComponent<PageInterface> =
 export interface PageInterface {
   children: Node,
   location: {
-    state: object;
+    state: {
+      prev: boolean;
+    };
   };
   variant?: string;
 }

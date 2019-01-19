@@ -24,12 +24,19 @@ export const Navigation = styled.nav<HeaderInterface>`
   `}
 `;
 
-export const Name = styled.h1`
+interface NameInterface {
+  variant?: string;
+}
+
+export const Name = styled.h1<NameInterface>`
   margin: 0;
   font-size: 22px;
   font-weight: 400;
   font-family: ${(props) => props.theme.font.space};
-  color: ${(props) => props.theme.white};
+  color: ${(props) => props.variant === 'white'
+    ? props.theme.black
+    : props.theme.white
+  };
 `;
 
 interface LetterInterface {

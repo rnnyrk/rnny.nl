@@ -12,7 +12,7 @@ const App = () => {
       <GlobalStyle />
       <Route
         render={({ location }) => {
-          const { pathname, key } = location;
+          const { pathname } = location;
 
           return (
             <TransitionGroup>
@@ -28,8 +28,8 @@ const App = () => {
                   location={location}
                   render={() => (
                     <Switch>
-                      <Route path="/" exact component={(props) => <Home {...props} />}  />
-                      <Route path="/about" component={(props) => <About {...props} />} />
+                      <Route exact path="/" component={Home} />
+                      <Route path="/about" component={About} />
                     </Switch>
                   )}
                 />

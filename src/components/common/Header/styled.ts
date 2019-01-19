@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import PT from 'prop-types';
 
+import { HeaderInterface } from 'common/Header';
 import Container from 'common/Container';
 
 export const HeaderContainer = styled(Container)`
@@ -9,7 +9,7 @@ export const HeaderContainer = styled(Container)`
   align-items: center;
 `;
 
-export const Navigation = styled.nav`
+export const Navigation = styled.nav<HeaderInterface>`
   display: flex;
   justify-content: space-between;
   width: 100vw;
@@ -24,10 +24,6 @@ export const Navigation = styled.nav`
   `}
 `;
 
-Navigation.propTypes = {
-  scrolled: PT.bool,
-};
-
 export const Name = styled.h1`
   margin: 0;
   font-size: 22px;
@@ -36,7 +32,11 @@ export const Name = styled.h1`
   color: ${(props) => props.theme.white};
 `;
 
-export const Letter = styled.span`
+interface LetterInterface {
+  visible?: boolean;
+}
+
+export const Letter = styled.span<LetterInterface>`
   opacity: ${(props) => props.visible ? 0 : 1};
   margin: ${(props) => props.visible ? '0 -.32em' : '0'};
   transition: opacity .2s ease-out,

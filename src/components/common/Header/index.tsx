@@ -1,9 +1,8 @@
-import React from 'react';
-import PT from 'prop-types';
+import React, { FunctionComponent } from 'react';
 
 import { HeaderContainer, Letter, Navigation, Name } from './styled';
 
-const Header = ({ scrolled }) => (
+const Header:FunctionComponent<HeaderInterface> = ({ scrolled })  => (
   <Navigation scrolled={scrolled}>
     <HeaderContainer>
       <Name>
@@ -24,8 +23,8 @@ const Header = ({ scrolled }) => (
   </Navigation>
 );
 
-Header.propTypes = {
-  scrolled: PT.bool,
-};
+export interface HeaderInterface {
+  scrolled: boolean,
+}
 
 export default Header;

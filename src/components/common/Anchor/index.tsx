@@ -1,23 +1,21 @@
 import styled, { css } from 'styled-components';
-import { media } from 'styles/utils';
 import { Link } from 'react-router-dom';
-import PT from 'prop-types';
 
 export const Anchor = styled.a.attrs(({ href }) => ({
   target: '_blank',
   rel: 'noopener noreferrer',
   href,
 }))`
-  color: ${(props) => props.theme.black};
   text-decoration: none;
-  border-bottom: 2px solid ${(props) => props.theme.prime};
+  color: ${(props) => props.theme.black};
+  border-bottom: 2px solid ${(props) => props.theme.black};
 `;
 
-Anchor.propTypes = {
-  href: PT.string,
-};
+interface PageLinkInterface {
+  variant?: string;
+}
 
-export const PageLink = styled(Link)`
+export const PageLink = styled(Link)<PageLinkInterface>`
   position: fixed;
   z-index: 1;
   bottom: 0;
@@ -34,12 +32,3 @@ export const PageLink = styled(Link)`
     right: 0;
   `}
 `;
-
-PageLink.propTypes = {
-  variant: PT.oneOf(['left', 'right']),
-};
-
-PageLink.defaultProps = {
-  variant: 'left',
-};
-

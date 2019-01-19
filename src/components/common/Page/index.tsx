@@ -5,7 +5,7 @@ import Header from 'common/Header';
 
 import { PageContainer } from './styled';
 
-const Page:FunctionComponent<PageProps> = ({ children }) => {
+const Page:FunctionComponent<PageInterface> = ({ children }) => {
   let [scrolled, setScrolled] = useState(false);
   const scrollY = useWindowScrollPosition();
 
@@ -25,7 +25,7 @@ const Page:FunctionComponent<PageProps> = ({ children }) => {
   );
 }
 
-export interface PageProps {
+export interface PageInterface {
   children: Node,
 }
 

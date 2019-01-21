@@ -45,7 +45,7 @@ const Header:FunctionComponent<HeaderInterface> = ({ variant }) => {
 }
 
 export interface HeaderInterface {
-  scrolled: boolean,
+  scrolled?: boolean, // @Sander ??
   variant?: string,
 }
 

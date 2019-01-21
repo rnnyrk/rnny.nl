@@ -34,7 +34,7 @@ export const PageContainer = styled.section<PageContainerInterface>`
   }
 
   &.page-enter {
-    transform: translate(-100%, 0);
+    transform: translate(-100vw, 0);
   }
 
   &.page-enter-active {
@@ -42,12 +42,11 @@ export const PageContainer = styled.section<PageContainerInterface>`
   }
 
   &.page-exit {
-    box-shadow: 0 0 5em 0 rgba(0, 0, 0, 0.5) inset;
-    transform: translate(-100%, 0);
+    transform: translate(-100vw, 0);
   }
 
   &.page--prev.page-enter {
-    transform: translate(100%, 0);
+    transform: translate(100vw, 0);
   }
 
   &.page--prev.page-enter-active {
@@ -55,11 +54,12 @@ export const PageContainer = styled.section<PageContainerInterface>`
   }
 
   &.page--prev.page-exit {
-    transform: translate(100%, 0);
+    transform: translate(100vw, 0);
   }
 
   &.page-exit .page__inner {
     opacity: 0;
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    transition: transform 0.5s ease-out,
+                opacity 0.5s ease-out;
   }
 `;

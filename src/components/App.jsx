@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useEffect, useContext } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import GlobalStyle from 'styles';
@@ -6,7 +6,17 @@ import GlobalStyle from 'styles';
 import Home from 'modules/Home';
 import About from 'modules/About';
 
-const App = () => {
+export const LocationContext = createContext(['', () => {}]);
+
+const App = (props) => {
+  const [location, setLocation] = useContext(LocationContext);
+
+  useEffect(() => {
+    console.log('props.location.pathname', props.location.pathname);
+    setLocation(props.location.pathname);
+    console.log('location', location);
+  });
+
   return (
     <main>
       <GlobalStyle />
@@ -20,8 +30,8 @@ const App = () => {
                 key={pathname}
                 classNames="page"
                 timeout={{
-                  enter: 500,
-                  exit: 500,
+                  enter: 5000,
+                  exit: 5000,
                 }}
               >
                 <Route

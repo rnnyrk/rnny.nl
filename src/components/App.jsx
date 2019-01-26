@@ -1,52 +1,58 @@
-import React, { createContext, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import GlobalStyle from 'styles';
+
+import posed, { PoseGroup } from 'react-pose';
+import styled from 'styled-components';
 
 import Home from 'modules/Home';
 import About from 'modules/About';
 
-export const LocationContext = createContext(['', () => {}]);
+const RouteContainer = styled(posed.div({
+  before: {
+    x: ({ direction }) => (direction === 'left' ? '100%' : '-100%'),
+    transition: { duration: 500 },
+    opacity: 1,
+  },
+  enter: {
+    x: '0%',
+    transition: { duration: 500 },
+  },
+  exit: {
+    x: ({ direction }) => (direction === 'left' ? '-100%' : '100%'),
+    transition: { duration: 500 },
+    opacity: 0,
+  },
+}));
 
 const App = (props) => {
-  const [location, setLocation] = useContext(LocationContext);
+  const [direction, setDirection] = useState('right');
 
   useEffect(() => {
-    console.log('props.location.pathname', props.location.pathname);
-    setLocation(props.location.pathname);
-    console.log('location', location);
+    if (props.location.pathname === '/about') {
+      setDirection('left');
+    } else {
+      setDirection('right');
+    }
   });
 
   return (
     <main>
       <GlobalStyle />
       <Route
-        render={({ location }) => {
-          const { pathname } = location;
-
-          return (
-            <TransitionGroup>
-              <CSSTransition
-                key={pathname}
-                classNames="page"
-                timeout={{
-                  enter: 5000,
-                  exit: 5000,
-                }}
-              >
-                <Route
-                  location={location}
-                  render={() => (
-                    <Switch>
-                      <Route exact path="/" component={Home} />
-                      <Route path="/about" component={About} />
-                    </Switch>
-                  )}
-                />
-              </CSSTransition>
-            </TransitionGroup>
-          );
-        }}
+        render={({ location }) => (
+          <PoseGroup preEnterPose="before">
+            <RouteContainer
+              direction={direction}
+              key={location.pathname}
+            >
+              <Switch location={location}>
+                <Route exact path="/" component={Home} />
+                <Route path="/about" component={About} />
+              </Switch>
+            </RouteContainer>
+          </PoseGroup>
+        )}
       />
     </main>
   );

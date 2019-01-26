@@ -1,39 +1,21 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { withRouter } from 'react-router-dom';
-import cn from 'classnames';
 
 import Header from 'common/Header';
 
 import { PageContainer } from './styled';
 
-const Page:FunctionComponent<PageInterface> =
-  ({ children, location: { state }, variant }) =>
-{
-  // console.log('location', location);
-
+const Page:FC<PageProps> = ({ children, variant }) => {
   return (
-    <PageContainer
-      className={cn({
-        page: true,
-        'page--prev': state && state.prev,
-      })}
-      variant={variant}
-    >
+    <PageContainer variant={variant}>
       <Header variant={variant} />
-      <div className="page__inner">
-        {children}
-      </div>
+      {children}
     </PageContainer>
   );
 }
 
-export interface PageInterface {
+export interface PageProps {
   children: Node,
-  location: {
-    state: {
-      prev: boolean;
-    };
-  };
   variant?: string;
 }
 

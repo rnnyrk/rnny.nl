@@ -37,6 +37,8 @@ export const DialogBody = styled(posed.div({
 }))`
   position: absolute;
   z-index: 4;
+  top: 200px;
+  left: 200px;
   width: 50vw;
   height: 50vh;
   background: ${(props) => props.theme.white};

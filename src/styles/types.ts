@@ -9,8 +9,8 @@ export interface Theme {
     off: string;
   };
   font: {
-    poppins: string,
-    space: string,
+    sans: string,
+    mono: string,
   };
 }
 

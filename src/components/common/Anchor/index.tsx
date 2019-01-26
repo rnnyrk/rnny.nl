@@ -8,7 +8,6 @@ export const Anchor = styled.a.attrs(({ href }) => ({
 }))`
   text-decoration: none;
   color: inherit;
-  border-bottom: 2px solid ${(props) => props.theme.black};
 `;
 
 interface PageProps {
@@ -23,7 +22,7 @@ export const PageLink = styled(Link)<PageProps>`
   padding: 20px 30px;
   overflow: hidden;
   text-decoration: none;
-  font-family: ${(props) => props.theme.font.space};
+  font-family: ${(props) => props.theme.font.mono};
   color: inherit;
   background: none;
 

@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { Anchor } from 'common/Anchor';
+
 interface HeaderContainerProps {
   scrolled?: boolean;
 }
@@ -27,7 +29,7 @@ export const Name = styled.h1<NameProps>`
   margin: 0;
   font-size: 22px;
   font-weight: 400;
-  font-family: ${(props) => props.theme.font.space};
+  font-family: ${(props) => props.theme.font.mono};
   color: inherit;
 `;
 
@@ -46,6 +48,20 @@ export const Social = styled.div`
   display: flex;
   align-items: center;
 
+  svg,
+  ${Anchor} {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  ${Anchor} {
+    display: flex;
+    align-items: center;
+  }
+
   svg {
     width: 25px;
     height: 25px;
@@ -53,8 +69,8 @@ export const Social = styled.div`
     cursor: pointer;
     fill: ${(props) => props.theme.white};
 
-    &:last-child {
-      margin-right: 0;
+    &:hover {
+      fill: ${(props) => props.theme.purple.dark};
     }
   }
 `;

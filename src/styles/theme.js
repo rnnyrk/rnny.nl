@@ -12,7 +12,7 @@ export default {
   ),
 
   font: {
-    poppins: '"Poppins", monospace',
-    space: '"Space Mono", monospace',
+    sans: '"IBM Plex Sans", sans',
+    mono: '"IBM Plex Mono", monospace',
   },
 };

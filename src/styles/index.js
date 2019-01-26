@@ -2,6 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 
 export default createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:400,700');
+
   *,
   *:after,
   *:before {
@@ -18,7 +20,7 @@ export default createGlobalStyle`
     padding: 0;
     margin: 0;
     line-height: 27px;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${theme.font.sans};
     color: ${theme.black};
 
     &.scrolled {

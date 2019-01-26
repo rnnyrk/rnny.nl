@@ -5,6 +5,7 @@ import Mail from 'vectors/mail.svg';
 import Linkedin from 'vectors/linkedin.svg';
 import Twitter from 'vectors/twitter.svg';
 
+import { Anchor } from 'common/Anchor';
 import Dialog from 'common/Dialog';
 
 import { HeaderContainer, Letter, Name, Social } from './styled';
@@ -50,8 +51,12 @@ const Header:FC<HeaderProps> = ({ variant }) => {
 
       <Social>
         <Mail onClick={() => setDialog(true)} />
-        <Linkedin />
-        <Twitter />
+        <Anchor href="">
+          <Linkedin />
+        </Anchor>
+        <Anchor href="https://twitter.com/rnnyrk">
+          <Twitter />
+        </Anchor>
       </Social>
     </HeaderContainer>
   );

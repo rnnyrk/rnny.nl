@@ -11,4 +11,5 @@ export const PageContainer = styled.section<PageProps>`
 export const Content = styled.div`
   position: relative;
   z-index: 1;
+  padding: 30px;
 `

@@ -1,12 +1,10 @@
 import styled, { css } from 'styled-components';
 
-import Container from 'common/Container';
-
-interface NavigationProps {
+interface HeaderContainerProps {
   scrolled?: boolean;
 }
 
-export const HeaderContainer = styled(Container)<NavigationProps>`
+export const HeaderContainer = styled.header<HeaderContainerProps>`
   position: relative;
   z-index: 1;
   display: flex;

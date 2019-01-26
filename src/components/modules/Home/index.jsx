@@ -11,6 +11,7 @@ const Home = () => {
   return (
     <Homepage>
       <Dialog isOpen={dialog} onClose={() => setDialog(false)} />
+
       <button onClick={() => setDialog(true)}>
         open dialog
       </button>

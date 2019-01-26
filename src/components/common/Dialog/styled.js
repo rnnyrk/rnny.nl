@@ -18,28 +18,30 @@ export const DialogOverlay = styled(posed.div({
 export const DialogBody = styled(posed.div({
   enter: {
     y: 0,
+    x: '-50%',
+    scale: 1,
     opacity: 1,
     delay: 300,
     transition: {
-      y: {
-        type: 'spring',
-        stiffness: 1000,
-        damping: 15,
-      },
-      default: { duration: 300 }
+      duration: 300,
     },
   },
   exit: {
     y: 50,
+    x: '-50%',
+    scale: 1.2,
     opacity: 0,
-    transition: { duration: 150 },
+    transition: {
+      duration: 150,
+    },
   },
 }))`
   position: absolute;
   z-index: 4;
   top: 200px;
-  left: 200px;
+  left: 50%;
   width: 50vw;
+  max-width: 600px;
   height: 50vh;
   background: ${(props) => props.theme.white};
 `;

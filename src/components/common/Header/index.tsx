@@ -1,13 +1,18 @@
 import React, { FC, useState } from 'react';
 
 import useWindowScrollPosition from 'services/hooks/windowScroll';
+import Mail from 'vectors/mail.svg';
 import Linkedin from 'vectors/linkedin.svg';
 import Twitter from 'vectors/twitter.svg';
+
+import Dialog from 'common/Dialog';
 
 import { HeaderContainer, Letter, Name, Social } from './styled';
 
 const Header:FC<HeaderProps> = ({ variant }) => {
-  let [scrolled, setScrolled] = useState(false);
+  const [dialog, setDialog] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
   const scrollY = useWindowScrollPosition();
 
   if (scrollY >= 10 && !scrolled) {
@@ -20,6 +25,8 @@ const Header:FC<HeaderProps> = ({ variant }) => {
 
   return (
     <HeaderContainer scrolled={scrolled}>
+      <Dialog isOpen={dialog} onClose={() => setDialog(false)} />
+
       <Name variant={variant}>
         <Letter
           visible={!scrolled}
@@ -42,6 +49,7 @@ const Header:FC<HeaderProps> = ({ variant }) => {
       </Name>
 
       <Social>
+        <Mail onClick={() => setDialog(true)} />
         <Linkedin />
         <Twitter />
       </Social>

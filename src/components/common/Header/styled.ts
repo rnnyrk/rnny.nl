@@ -47,9 +47,10 @@ export const Social = styled.div`
   align-items: center;
 
   svg {
-    width: 28px;
-    height: 28px;
-    margin-right: 15px;
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+    cursor: pointer;
     fill: ${(props) => props.theme.white};
 
     &:last-child {

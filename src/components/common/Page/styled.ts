@@ -5,6 +5,7 @@ export interface PageProps {
 }
 
 export const PageContainer = styled.section<PageProps>`
+  display: flex;
   min-height: 100vh;
 `;
 

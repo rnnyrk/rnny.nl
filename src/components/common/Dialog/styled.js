@@ -12,7 +12,7 @@ export const DialogOverlay = styled(posed.div({
   bottom: 0;
   left: 0;
   cursor: pointer;
-  background: rgba(0, 0, 0, .2);
+  background: rgba(0, 0, 0, .5);
 `;
 
 export const DialogBody = styled(posed.div({

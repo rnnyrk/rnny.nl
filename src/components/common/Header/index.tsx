@@ -30,21 +30,21 @@ const Header:FC<HeaderProps> = ({ variant }) => {
 
       <Name variant={variant}>
         <Letter
-          visible={!scrolled}
+          visible={scrolled}
           dangerouslySetInnerHTML={{ __html: '<' }}
         />
         <Letter>r</Letter>
-        <Letter visible={scrolled}>o</Letter>
+        <Letter visible={!scrolled}>o</Letter>
         <Letter>n</Letter>
         <Letter>n</Letter>
         <Letter>y</Letter>
         <Letter>r</Letter>
-        <Letter visible={scrolled}>o</Letter>
-        <Letter visible={scrolled}>o</Letter>
+        <Letter visible={!scrolled}>o</Letter>
+        <Letter visible={!scrolled}>o</Letter>
         <Letter>k</Letter>
         <Letter visible={!scrolled}>/</Letter>
         <Letter
-          visible={!scrolled}
+          visible={scrolled}
           dangerouslySetInnerHTML={{ __html: '>' }}
         />
       </Name>

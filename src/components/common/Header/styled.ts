@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-
+import { media } from 'styles/utils';
 import { Anchor } from 'common/Anchor';
 
 interface HeaderContainerProps {
@@ -7,17 +7,17 @@ interface HeaderContainerProps {
 }
 
 export const HeaderContainer = styled.header<HeaderContainerProps>`
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: 1;
   display: flex;
   justify-content: space-between;
   padding: 20px 30px;
-  margin-bottom: 40px;
 
   ${(props) => props.scrolled && css`
     position: fixed;
-    top: 0;
-    left: 0;
   `}
 `;
 
@@ -68,9 +68,13 @@ export const Social = styled.div`
     margin-right: 20px;
     cursor: pointer;
     fill: ${(props) => props.theme.white};
+    opacity: .5;
+    transition: opacity .2s;
 
-    &:hover {
-      fill: ${(props) => props.theme.purple.dark};
-    }
+    ${media.desktop`
+      &:hover {
+        opacity: 1;
+      }
+    `}
   }
 `;

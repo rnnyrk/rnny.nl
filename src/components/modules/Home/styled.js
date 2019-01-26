@@ -4,6 +4,8 @@ import Presentation from 'static/images/presentation-desktop.png?external';
 import Page from 'common/Page';
 
 export const Homepage = styled(Page)`
+  flex-direction: column;
+  justify-content: center;
   background: url(${Presentation}) no-repeat center / cover;
 
   &:before,
@@ -31,5 +33,24 @@ export const Homepage = styled(Page)`
       ${(props) => props.theme.purple},
       transparent
     );
+  }
+`;
+
+export const Usp = styled.ul`
+  margin: 0;
+  padding-left: 0;
+  font-size: 48px;
+  line-height: 60px;
+  text-transform: uppercase;
+  list-style: none;
+
+  li:nth-child(4) {
+    margin-top: 10px;
+  }
+
+  li:nth-child(4),
+  li:nth-child(5),
+  li:nth-child(6) {
+    font-weight: 700;
   }
 `;

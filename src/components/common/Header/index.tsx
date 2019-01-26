@@ -42,7 +42,7 @@ const Header:FC<HeaderProps> = ({ variant }) => {
         <Letter visible={!scrolled}>o</Letter>
         <Letter visible={!scrolled}>o</Letter>
         <Letter>k</Letter>
-        <Letter visible={!scrolled}>/</Letter>
+        <Letter visible={scrolled}>/</Letter>
         <Letter
           visible={scrolled}
           dangerouslySetInnerHTML={{ __html: '>' }}

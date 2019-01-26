@@ -3,18 +3,21 @@ import { withRouter } from 'react-router-dom';
 
 import Header from 'common/Header';
 
-import { PageContainer } from './styled';
+import { PageContainer, Content } from './styled';
 
-const Page:FC<PageProps> = ({ children, variant }) => {
+const Page:FC<PageProps> = ({ className, children, variant }) => {
   return (
-    <PageContainer variant={variant}>
+    <PageContainer className={className} variant={variant}>
       <Header variant={variant} />
-      {children}
+      <Content>
+        {children}
+      </Content>
     </PageContainer>
   );
 }
 
 export interface PageProps {
+  className: string,
   children: Node,
   variant?: string;
 }

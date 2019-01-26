@@ -7,6 +7,8 @@ interface NavigationProps {
 }
 
 export const HeaderContainer = styled(Container)<NavigationProps>`
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   padding: 20px 30px;
@@ -14,7 +16,6 @@ export const HeaderContainer = styled(Container)<NavigationProps>`
 
   ${(props) => props.scrolled && css`
     position: fixed;
-    z-index: 1;
     top: 0;
     left: 0;
   `}

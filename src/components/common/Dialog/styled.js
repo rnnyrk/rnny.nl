@@ -6,7 +6,7 @@ export const DialogOverlay = styled(posed.div({
   exit: { opacity: 0 },
 }))`
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   right: 0;
   bottom: 0;
@@ -36,7 +36,7 @@ export const DialogBody = styled(posed.div({
   },
 }))`
   position: absolute;
-  z-index: 2;
+  z-index: 4;
   width: 50vw;
   height: 50vh;
   background: ${(props) => props.theme.white};

@@ -8,4 +8,8 @@ export default styled.div`
     max-width: 38em;
     margin: 0 auto;
   `}
+
+  ${media.desktop`
+    max-width: 48em;
+  `}
 `;

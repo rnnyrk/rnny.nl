@@ -7,7 +7,7 @@ export const Anchor = styled.a.attrs(({ href }) => ({
   href,
 }))`
   text-decoration: none;
-  color: ${(props) => props.theme.black};
+  color: inherit;
   border-bottom: 2px solid ${(props) => props.theme.black};
 `;
 
@@ -24,7 +24,7 @@ export const PageLink = styled(Link)<PageProps>`
   overflow: hidden;
   text-decoration: none;
   font-family: ${(props) => props.theme.font.space};
-  color: ${(props) => props.theme.white};
+  color: inherit;
   background: none;
 
   ${(props) => props.variant === 'right' && css`

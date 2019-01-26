@@ -3,13 +3,11 @@ import { PoseGroup } from 'react-pose';
 
 import { DialogOverlay, DialogBody } from './styled';
 
-const Dialog:FC<DialogProps> =
-  ({ isOpen, onClose, children }) =>
-(
+const Dialog:FC<DialogProps> = ({ isOpen, onClose, children }) => (
   <PoseGroup>
     {isOpen && [
-      <DialogBody key="body">{children}</DialogBody>,
-      <DialogOverlay key="overlay" onClick={onClose} />
+      <DialogBody key="modal-body">{children}</DialogBody>,
+      <DialogOverlay key="modal-overlay" onClick={onClose} />
     ]}
   </PoseGroup>
 );

@@ -1,53 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
+import { PoseGroup } from 'react-pose';
 import GlobalStyle from 'styles';
-
-import posed, { PoseGroup } from 'react-pose';
-import styled from 'styled-components';
 
 import Home from 'modules/Home';
 import About from 'modules/About';
 
-const RouteContainer = styled(posed.div({
-  before: {
-    x: ({ direction }) => (direction === 'left' ? '100%' : '-100%'),
-    transition: { duration: 500 },
-    opacity: 1,
-  },
-  enter: {
-    x: '0%',
-    transition: { duration: 500 },
-  },
-  exit: {
-    x: ({ direction }) => (direction === 'left' ? '-100%' : '100%'),
-    transition: { duration: 500 },
-    opacity: 0,
-  },
-}))`
-  min-height: 100vh;
-`;
+import { Background, RouteContainer } from './styled';
 
 const App = (props) => {
-  const [direction, setDirection] = useState('right');
+  const [color, setColor] = useState('purple');
 
   useEffect(() => {
     if (props.location.pathname === '/about') {
-      setDirection('left');
+      setColor('white');
     } else {
-      setDirection('right');
+      setColor('purple');
     }
   }, [props.location.pathname]);
 
   return (
-    <main>
+    <Background pose={color === 'purple' ? 'purple' : 'white'}>
       <GlobalStyle />
       <Route
         render={({ location }) => (
           <PoseGroup preEnterPose="before">
-            <RouteContainer
-              direction={direction}
-              key={location.pathname}
-            >
+            <RouteContainer key={location.pathname}>
               <Switch location={location}>
                 <Route
                   exact
@@ -63,7 +41,7 @@ const App = (props) => {
           </PoseGroup>
         )}
       />
-    </main>
+    </Background>
   );
 }
 

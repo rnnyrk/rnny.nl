@@ -31,7 +31,6 @@ export const DialogBody = styled(posed.div({
   },
   exit: {
     y: 50,
-    x: 500,
     opacity: 0,
     transition: { duration: 150 },
   },

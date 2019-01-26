@@ -2,20 +2,13 @@ import styled, { css } from 'styled-components';
 
 import Container from 'common/Container';
 
-export const HeaderContainer = styled(Container)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 interface NavigationProps {
   scrolled?: boolean;
 }
 
-export const Navigation = styled.nav<NavigationProps>`
+export const HeaderContainer = styled(Container)<NavigationProps>`
   display: flex;
   justify-content: space-between;
-  width: 100vw;
   padding: 20px 30px;
   margin-bottom: 40px;
 
@@ -36,10 +29,7 @@ export const Name = styled.h1<NameProps>`
   font-size: 22px;
   font-weight: 400;
   font-family: ${(props) => props.theme.font.space};
-  color: ${(props) => props.variant === 'white'
-    ? props.theme.black
-    : props.theme.white
-  };
+  color: inherit;
 `;
 
 interface LetterProps {

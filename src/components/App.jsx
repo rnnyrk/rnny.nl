@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { PoseGroup } from 'react-pose';
 import GlobalStyle from 'styles';
@@ -7,6 +7,9 @@ import Home from 'modules/Home';
 import About from 'modules/About';
 
 import { Background, RouteContainer } from './styled';
+
+// export const ColorContext = createContext('purple');
+// @TODO use context https://www.youtube.com/watch?v=xWXxkFzgnFM
 
 const App = (props) => {
   const [color, setColor] = useState('purple');
@@ -20,7 +23,7 @@ const App = (props) => {
   }, [props.location.pathname]);
 
   return (
-    <Background pose={color === 'purple' ? 'purple' : 'white'}>
+    <Background pose={color}>
       <GlobalStyle />
       <Route
         render={({ location }) => (

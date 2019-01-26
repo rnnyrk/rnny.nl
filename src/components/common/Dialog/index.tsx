@@ -1,32 +1,22 @@
-import React, { FunctionComponent } from 'react';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import React, { FC } from 'react';
+import { PoseGroup } from 'react-pose';
 
-import { DialogContainer, DialogOverlay, DialogBody } from './styled';
+import { DialogOverlay, DialogBody } from './styled';
 
-const Dialog:FunctionComponent<DialogInterface> =
+const Dialog:FC<DialogProps> =
   ({ isOpen, onClose, children }) =>
 (
-  <DialogContainer>
-    <TransitionGroup>
-      {isOpen && (
-        <CSSTransition
-          classNames="dialog"
-          timeout={300}
-        >
-          <DialogOverlay onClick={onClose}>
-            <DialogBody>
-              {children}
-            </DialogBody>
-          </DialogOverlay>
-        </CSSTransition>
-      )}
-    </TransitionGroup>
-  </DialogContainer>
+  <PoseGroup>
+    {isOpen && [
+      <DialogBody key="body">{children}</DialogBody>,
+      <DialogOverlay key="overlay" onClick={onClose} />
+    ]}
+  </PoseGroup>
 );
 
-interface DialogInterface {
+interface DialogProps {
   isOpen: boolean;
-  onClose(): void;
+  onClose: () => void;
   children?: any;
 }
 

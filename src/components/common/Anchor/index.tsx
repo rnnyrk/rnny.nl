@@ -11,11 +11,11 @@ export const Anchor = styled.a.attrs(({ href }) => ({
   border-bottom: 2px solid ${(props) => props.theme.black};
 `;
 
-interface PageLinkInterface {
+interface PageProps {
   variant?: string;
 }
 
-export const PageLink = styled(Link)<PageLinkInterface>`
+export const PageLink = styled(Link)<PageProps>`
   position: fixed;
   z-index: 1;
   bottom: 0;

@@ -1,10 +1,10 @@
-import React, { FunctionComponent, useState} from 'react';
+import React, { FC, useState } from 'react';
 
 import useWindowScrollPosition from 'services/hooks/windowScroll';
 
 import { HeaderContainer, Letter, Navigation, Name } from './styled';
 
-const Header:FunctionComponent<HeaderInterface> = ({ variant }) => {
+const Header:FC<HeaderProps> = ({ variant }) => {
   let [scrolled, setScrolled] = useState(false);
   const scrollY = useWindowScrollPosition();
 
@@ -44,8 +44,7 @@ const Header:FunctionComponent<HeaderInterface> = ({ variant }) => {
   );
 }
 
-export interface HeaderInterface {
-  scrolled?: boolean, // @Sander ??
+export interface HeaderProps {
   variant?: string,
 }
 

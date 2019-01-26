@@ -23,7 +23,9 @@ const RouteContainer = styled(posed.div({
     transition: { duration: 500 },
     opacity: 0,
   },
-}));
+}))`
+  min-height: 100vh;
+`;
 
 const App = (props) => {
   const [direction, setDirection] = useState('right');
@@ -34,7 +36,7 @@ const App = (props) => {
     } else {
       setDirection('right');
     }
-  });
+  }, [props.location.pathname]);
 
   return (
     <main>
@@ -47,8 +49,15 @@ const App = (props) => {
               key={location.pathname}
             >
               <Switch location={location}>
-                <Route exact path="/" component={Home} />
-                <Route path="/about" component={About} />
+                <Route
+                  exact
+                  path="/"
+                  render={props => <Home {...props} />}
+                />
+                <Route
+                  path="/about"
+                  render={props => <About {...props} />}
+                />
               </Switch>
             </RouteContainer>
           </PoseGroup>

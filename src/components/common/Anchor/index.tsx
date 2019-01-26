@@ -11,7 +11,7 @@ export const Anchor = styled.a.attrs(({ href }) => ({
 `;
 
 interface PageProps {
-  variant?: string;
+  position?: string;
 }
 
 export const PageLink = styled(Link)<PageProps>`
@@ -26,7 +26,7 @@ export const PageLink = styled(Link)<PageProps>`
   color: inherit;
   background: none;
 
-  ${(props) => props.variant === 'right' && css`
+  ${(props) => props.position === 'right' && css`
     left: auto;
     right: 0;
   `}

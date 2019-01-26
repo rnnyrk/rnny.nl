@@ -1,8 +1,10 @@
 import React, { FC, useState } from 'react';
 
 import useWindowScrollPosition from 'services/hooks/windowScroll';
+import Linkedin from 'vectors/linkedin.svg';
+import Twitter from 'vectors/twitter.svg';
 
-import { HeaderContainer, Letter, Name } from './styled';
+import { HeaderContainer, Letter, Name, Social } from './styled';
 
 const Header:FC<HeaderProps> = ({ variant }) => {
   let [scrolled, setScrolled] = useState(false);
@@ -38,6 +40,11 @@ const Header:FC<HeaderProps> = ({ variant }) => {
           dangerouslySetInnerHTML={{ __html: '>' }}
         />
       </Name>
+
+      <Social>
+        <Linkedin />
+        <Twitter />
+      </Social>
     </HeaderContainer>
   );
 }

@@ -41,3 +41,19 @@ export const Letter = styled.span<LetterProps>`
   transition: opacity .2s ease-out,
               margin .2s ease-in-out;
 `;
+
+export const Social = styled.div`
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 28px;
+    height: 28px;
+    margin-right: 15px;
+    fill: ${(props) => props.theme.white};
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+`;

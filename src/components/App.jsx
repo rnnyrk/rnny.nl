@@ -4,10 +4,9 @@ import { PoseGroup } from 'react-pose';
 import GlobalStyle from 'styles';
 
 import { ColorContext } from 'services/context/ColorContext';
+import { PoseBackground, PoseContainer } from 'common/Animation';
 import Home from 'modules/Home';
 import About from 'modules/About';
-
-import { Background, RouteContainer } from './styled';
 
 const App = (props) => {
   const [color, setColor] = useState('purple');
@@ -21,13 +20,13 @@ const App = (props) => {
   }, [props.location.pathname]);
 
   return (
-    <Background pose={color}>
+    <PoseBackground pose={color}>
       <GlobalStyle />
       <Route
         render={({ location }) => (
           <ColorContext.Provider value={color}>
             <PoseGroup preEnterPose="before">
-              <RouteContainer key={location.pathname}>
+              <PoseContainer key={location.pathname}>
                 <Switch location={location}>
                   <Route
                     exact
@@ -39,12 +38,12 @@ const App = (props) => {
                     render={props => <About {...props} />}
                   />
                 </Switch>
-              </RouteContainer>
+              </PoseContainer>
             </PoseGroup>
           </ColorContext.Provider>
         )}
       />
-    </Background>
+    </PoseBackground>
   );
 }
 

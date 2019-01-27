@@ -9,7 +9,6 @@ export const PageContainer = styled.section<PageProps>`
   min-height: 100vh;
 `;
 
-
 export interface ContentProps {
   useGrid?: boolean;
 }

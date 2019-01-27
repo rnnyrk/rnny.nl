@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { withRouter } from 'react-router-dom';
 
 import Header from 'common/Header';
 
@@ -22,4 +21,4 @@ export interface PageProps {
   useGrid?: boolean,
 }
 
-export default withRouter(Page);
+export default Page;

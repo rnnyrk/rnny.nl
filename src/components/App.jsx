@@ -1,18 +1,69 @@
-import React, { lazy, Suspense } from 'react';
+import React, { PureComponent, lazy, Suspense } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import GlobalStyle from 'styles';
+import { PoseGroup } from 'react-pose';
+import GlobaStyle from 'styles';
 
-const Prime = lazy(() => import('modules/Prime'));
+import Header from 'common/Header';
+import Loading from 'common/Loading';
+import RouteContainer from 'common/RouteContainer/styled';
 
-const App = () => (
-  <main>
-    <GlobalStyle />
-    <Suspense fallback={<span>loading</span>}>
-      <Switch>
-        <Route path="/" component={Prime} exact />
-      </Switch>
-    </Suspense>
-  </main>
-);
+const Home = lazy(() => import('modules/Home'));
+const Cv = lazy(() => import('modules/Cv'));
+const Work = lazy(() => import('modules/Work'));
+
+class App extends PureComponent {
+  state = {
+    scrolledPage: false,
+  };
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const scrollY = window.scrollY;
+
+    if (scrollY >= 10 && !this.state.scrolledPage) {
+      this.setState({ scrolledPage: true });
+      document.body.classList.add('scrolled');
+    } else if (scrollY < 10 && this.state.scrolledPage) {
+      this.setState({ scrolledPage: false });
+      document.body.classList.remove('scrolled');
+    }
+  }
+
+  render() {
+    const { scrolledPage } = this.state;
+
+    return (
+      <>
+        <GlobaStyle />
+        <main>
+          <Header scrolledPage={scrolledPage} />
+          <Suspense fallback={<Loading>Loading...</Loading>}>
+            <Route render={({ location }) => (
+              <PoseGroup preEnterPose="before">
+                <RouteContainer
+                  direction="left"
+                  key={location.pathname}
+                >
+                  <Switch location={location}>
+                    <Route path="/" component={(props) => <Home {...props} />} exact />
+                    <Route path="/cv" component={(props) => <Cv {...props} />} />
+                    <Route path="/work" component={(props) => <Work {...props} />} />
+                  </Switch>
+                </RouteContainer>
+              </PoseGroup>
+            )} />
+          </Suspense>
+        </main>
+      </>
+    );
+  }
+}
 
 export default withRouter(App);

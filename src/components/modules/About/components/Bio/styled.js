@@ -8,6 +8,7 @@ export const BioHeader = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 25px;
 `;
 
 export const Photo = styled.figure`

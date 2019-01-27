@@ -23,6 +23,7 @@ export const Content = styled.div<ContentProps>`
     display: grid;
     grid-template-columns: repeat(12, 80px);
     grid-gap: 20px;
+    align-content: flex-start;
     max-width: 1200px;
     margin: 0 auto;
     padding: 150px 0;

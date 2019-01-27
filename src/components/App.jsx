@@ -1,69 +1,51 @@
-import React, { PureComponent, lazy, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { PoseGroup } from 'react-pose';
-import GlobaStyle from 'styles';
+import GlobalStyle from 'styles';
 
-import Header from 'common/Header';
-import Loading from 'common/Loading';
-import RouteContainer from 'common/RouteContainer/styled';
+import { ColorContext } from 'services/context/ColorContext';
+import Home from 'modules/Home';
+import About from 'modules/About';
 
-const Home = lazy(() => import('modules/Home'));
-const Cv = lazy(() => import('modules/Cv'));
-const Work = lazy(() => import('modules/Work'));
+import { Background, RouteContainer } from './styled';
 
-class App extends PureComponent {
-  state = {
-    scrolledPage: false,
-  };
+const App = (props) => {
+  const [color, setColor] = useState('purple');
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-
-  handleScroll = () => {
-    const scrollY = window.scrollY;
-
-    if (scrollY >= 10 && !this.state.scrolledPage) {
-      this.setState({ scrolledPage: true });
-      document.body.classList.add('scrolled');
-    } else if (scrollY < 10 && this.state.scrolledPage) {
-      this.setState({ scrolledPage: false });
-      document.body.classList.remove('scrolled');
+  useEffect(() => {
+    if (props.location.pathname === '/about') {
+      setColor('white');
+    } else {
+      setColor('purple');
     }
-  }
+  }, [props.location.pathname]);
 
-  render() {
-    const { scrolledPage } = this.state;
-
-    return (
-      <>
-        <GlobaStyle />
-        <main>
-          <Header scrolledPage={scrolledPage} />
-          <Suspense fallback={<Loading>Loading...</Loading>}>
-            <Route render={({ location }) => (
-              <PoseGroup preEnterPose="before">
-                <RouteContainer
-                  direction="left"
-                  key={location.pathname}
-                >
-                  <Switch location={location}>
-                    <Route path="/" component={(props) => <Home {...props} />} exact />
-                    <Route path="/cv" component={(props) => <Cv {...props} />} />
-                    <Route path="/work" component={(props) => <Work {...props} />} />
-                  </Switch>
-                </RouteContainer>
-              </PoseGroup>
-            )} />
-          </Suspense>
-        </main>
-      </>
-    );
-  }
+  return (
+    <Background pose={color}>
+      <GlobalStyle />
+      <Route
+        render={({ location }) => (
+          <ColorContext.Provider value={color}>
+            <PoseGroup preEnterPose="before">
+              <RouteContainer key={location.pathname}>
+                <Switch location={location}>
+                  <Route
+                    exact
+                    path="/"
+                    render={props => <Home {...props} />}
+                  />
+                  <Route
+                    path="/about"
+                    render={props => <About {...props} />}
+                  />
+                </Switch>
+              </RouteContainer>
+            </PoseGroup>
+          </ColorContext.Provider>
+        )}
+      />
+    </Background>
+  );
 }
 
 export default withRouter(App);

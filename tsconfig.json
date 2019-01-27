@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noEmit": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "pretty": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "jsx": "react",
+    "baseUrl": "src",
+    "paths": {
+      "common/*": ["components/common/*"],
+      "components/*": ["components/*"],
+      "config/*": ["config/*"],
+      "config": ["config/index"],
+      "ducks/*": ["ducks/*"],
+      "ducks": ["ducks/index"],
+      "images/*": ["static/images/*"],
+      "modules/*": ["components/modules/*"],
+      "server": ["../server/index"],
+      "services/*": ["services/*"],
+      "store": ["store"],
+      "styles/*": ["styles/*"],
+      "styles": ["styles/index"],
+      "types": ["types/index"],
+      "vectors/*": ["static/vectors/*"],
+      "styled-components": ["services/styled-components.ts"]
+    },
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["dom", "es6"]
+  }
+}

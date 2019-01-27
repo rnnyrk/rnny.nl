@@ -1,5 +1,6 @@
 import React from 'react';
 
+<<<<<<< HEAD
 import { PageLink } from 'common/Button';
 import Bio from 'common/Bio';
 import Container from 'common/Container';
@@ -21,6 +22,27 @@ const Home = () => (
       <PageLink to="/work" variant="right">Work</PageLink>
     </Container>
   </Page>
+=======
+import { PageLink } from 'common/Anchor';
+
+import { Usp, Homepage } from './styled';
+
+const Home = () => (
+  <Homepage>
+    <Usp>
+      <li>Concepting</li>
+      <li>Designing</li>
+      <li>&amp; Developing</li>
+      <li>Mobile apps</li>
+      <li>User interfaces</li>
+      <li>Websites &amp; Web apps</li>
+    </Usp>
+
+    <PageLink to="/about">
+      About
+    </PageLink>
+  </Homepage>
+>>>>>>> 09bc0e654bfe8395fcc014ad44045fe0e0eb9862
 );
 
 export default Home;

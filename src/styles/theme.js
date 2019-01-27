@@ -1,20 +1,18 @@
 export default {
-<<<<<<< HEAD
-  prime: '#e7ff00',
   black: '#000000',
-=======
-  blue: Object.assign(
-    '#5092fc',
-    {
-      dark: '#2164d1',
+  purple: Object.assign(
+    '#1c1a25', {
+      dark: '#272530',
     },
   ),
   white: Object.assign(
-    '#ffffff',
-    {
-      off: '#f4f4f4',
+    '#ffffff', {
+      off: '#e6e5eb',
     },
   ),
-  black: '#222222',
->>>>>>> 273ce95dea39f70236f4d432aa0bd7f0d65f0d87
+
+  font: {
+    sans: '"IBM Plex Sans", sans',
+    mono: '"IBM Plex Mono", monospace',
+  },
 };

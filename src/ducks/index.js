@@ -1,1 +1,1 @@
-export ui from './ui';
+export { default as data } from './data';

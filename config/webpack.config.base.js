@@ -1,6 +1,7 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const paths = require('./paths');
 
 const baseConfig = {
@@ -13,7 +14,7 @@ const baseConfig = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.[tj]sx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
@@ -47,7 +48,7 @@ const baseConfig = {
       },
       {
         exclude: [
-          /\.jsx?$/,
+          /\.[tj]sx?$/,
           /\.css$/,
           /\.svg$/,
           /\.(jpe?g|png|gif)$/i,
@@ -80,20 +81,12 @@ const baseConfig = {
     },
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
-    alias: {
-      app: paths.resolveSrc(),
-      common: paths.resolveSrc('components/common'),
-      components: paths.resolveSrc('components'),
-      config: paths.resolveSrc('config'),
-      ducks: paths.resolveSrc('ducks'),
-      fonts: paths.resolveSrc('static/fonts'),
-      images: paths.resolveSrc('static/images'),
-      modules: paths.resolveSrc('components/modules'),
-      services: paths.resolveSrc('services'),
-      styles: paths.resolveSrc('styles'),
-      vectors: paths.resolveSrc('static/vectors'),
-    },
+    extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
+    plugins: [
+      new TsconfigPathsPlugin({
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      }),
+    ],
   },
 };
 

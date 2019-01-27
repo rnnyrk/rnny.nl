@@ -7,7 +7,7 @@ import Bio from './components/Bio';
 
 const About = () => {
   return (
-    <Page>
+    <Page useGrid>
       <Bio />
 
       <PageLink to="/" position="right">

@@ -5,11 +5,11 @@ import Header from 'common/Header';
 
 import { PageContainer, Content } from './styled';
 
-const Page:FC<PageProps> = ({ className, children }) => {
+const Page:FC<PageProps> = ({ className, children, useGrid }) => {
   return (
     <PageContainer className={className}>
       <Header />
-      <Content>
+      <Content useGrid={useGrid}>
         {children}
       </Content>
     </PageContainer>
@@ -19,6 +19,7 @@ const Page:FC<PageProps> = ({ className, children }) => {
 export interface PageProps {
   className: string,
   children: Node,
+  useGrid?: boolean,
 }
 
 export default withRouter(Page);

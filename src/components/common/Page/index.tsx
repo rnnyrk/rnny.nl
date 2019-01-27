@@ -5,10 +5,10 @@ import Header from 'common/Header';
 
 import { PageContainer, Content } from './styled';
 
-const Page:FC<PageProps> = ({ className, children, variant }) => {
+const Page:FC<PageProps> = ({ className, children }) => {
   return (
-    <PageContainer className={className} variant={variant}>
-      <Header variant={variant} />
+    <PageContainer className={className}>
+      <Header />
       <Content>
         {children}
       </Content>
@@ -19,7 +19,6 @@ const Page:FC<PageProps> = ({ className, children, variant }) => {
 export interface PageProps {
   className: string,
   children: Node,
-  variant?: string;
 }
 
 export default withRouter(Page);

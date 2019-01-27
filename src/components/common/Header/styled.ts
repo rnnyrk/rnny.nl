@@ -21,11 +21,7 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
   `}
 `;
 
-interface NameProps {
-  variant?: string;
-}
-
-export const Name = styled.h1<NameProps>`
+export const Name = styled.h1`
   margin: 0;
   font-size: 22px;
   font-weight: 400;
@@ -44,7 +40,12 @@ export const Letter = styled.span<LetterProps>`
               margin .2s ease-in-out;
 `;
 
-export const Social = styled.div`
+interface SocialProps {
+  // variant: 'purple' | 'white';
+  variant: string;
+}
+
+export const Social = styled.div<SocialProps>`
   display: flex;
   align-items: center;
 
@@ -77,4 +78,10 @@ export const Social = styled.div`
       }
     `}
   }
+
+  ${(props) => props.variant === 'white' && css`
+    svg {
+      fill: ${(props) => props.theme.black};
+    }
+  `}
 `;

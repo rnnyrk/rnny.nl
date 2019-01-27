@@ -8,6 +8,7 @@ const About = () => {
     <Page>
 
 
+
       <PageLink to="/" position="right">
         Home
       </PageLink>

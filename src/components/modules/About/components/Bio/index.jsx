@@ -8,7 +8,7 @@ const Bio = () => (
       <Photo />
       <Title>Hi, I’m Ronny! 👋</Title>
     </BioHeader>
-    <p>I’m a JavaScript (mostly front-end) developer from Amsterdam, the Netherlands 🇳🇱. I’ve got a passion for design, sports, music, (web) performance and cutting-egde web technologies such as React (Native), Progressive Web Apps, and CSS Grid.</p>
+    <p>I’m a JavaScript (mostly front-end) developer from Amsterdam, the Netherlands 🇳🇱. I’ve got a passion for design, kitesurfing, running, (oldskool) hiphop, (web) performance and - cutting-egde - web technologies such as React (Native), Progressive Web Apps, Styled Components and CSS Grid.</p>
   </BioContainer>
 );
 

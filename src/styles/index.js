@@ -19,8 +19,8 @@ export default createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 17px;
+    line-height: 28px;
     font-family: ${theme.font.sans};
     color: ${theme.black};
 

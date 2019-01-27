@@ -2,6 +2,7 @@ import * as i from 'types';
 
 export interface Theme {
   black: string;
+  gray: string;
   purple: {
     dark: string;
   };

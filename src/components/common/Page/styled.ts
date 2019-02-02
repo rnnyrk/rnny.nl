@@ -7,6 +7,14 @@ export interface PageProps {
 export const PageContainer = styled.section<PageProps>`
   display: flex;
   min-height: 100vh;
+
+  canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
 `;
 
 export interface ContentProps {

@@ -8,28 +8,16 @@ export const Homepage = styled(Page)`
   justify-content: center;
   background: url(${Presentation}) no-repeat center / cover;
 
-  &:before,
-  &:after {
+  &:before {
     content: '';
     position: absolute;
+    z-index: 1;
+    top: 0;
     right: 0;
     left: 0;
     height: 250px;
-  }
-
-  &:before {
-    top: 0;
     background: linear-gradient(
       to bottom,
-      ${(props) => props.theme.purple},
-      transparent
-    );
-  }
-
-  &:after {
-    bottom: 0;
-    background: linear-gradient(
-      to top,
       ${(props) => props.theme.purple},
       transparent
     );
@@ -44,13 +32,12 @@ export const Usp = styled.ul`
   text-transform: uppercase;
   list-style: none;
 
-  li:nth-child(4) {
-    margin-top: 10px;
+  li:nth-child(3) {
+    margin-top: 20px;
   }
 
-  li:nth-child(4),
-  li:nth-child(5),
-  li:nth-child(6) {
+  li:nth-child(3),
+  li:nth-child(4) {
     font-weight: 700;
   }
 `;

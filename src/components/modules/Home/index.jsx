@@ -5,7 +5,7 @@ import { PageLink } from 'common/Anchor';
 import { Usp, Homepage } from './styled';
 
 const Home = () => (
-  <Homepage>
+  <Homepage useCanvas>
     <Usp>
       <li>Designing</li>
       <li>&amp; Developing</li>

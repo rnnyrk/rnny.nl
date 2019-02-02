@@ -6,14 +6,14 @@ export const PoseBackground = styled(posed.div({
     color: '#ffffff',
     backgroundPosition: '0% 50%',
     transition: {
-      duration: 1000,
+      duration: 500,
     },
   },
   white: {
     color: '#000000',
     backgroundPosition: '100% 50%',
     transition: {
-      duration: 1000,
+      duration: 500,
     },
   }
 }))`

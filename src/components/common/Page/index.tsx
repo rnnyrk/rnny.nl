@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import Header from 'common/Header';
 
-import { PageContainer, Content } from './styled';
+import { Canvas, Content, PageContainer } from './styled';
 
 const Page:FC<PageProps> = ({
   className, children, useCanvas, useGrid, ...props
@@ -79,18 +79,18 @@ const Page:FC<PageProps> = ({
       itemWidth,
       itemHeight,
     );
-    ctx.fillStyle = '#272530';
+    ctx.fillStyle = '#9991BC';
     ctx.fill();
 
-    ctx.beginPath();
-    ctx.rect(
-      canvas.width - (itemWidth + itemOffset),
-      canvas.height - (itemHeight + itemOffset),
-      itemWidth,
-      itemHeight,
-    );
-    ctx.fillStyle = '#272530';
-    ctx.fill();
+    // ctx.beginPath();
+    // ctx.rect(
+    //   canvas.width - (itemWidth + itemOffset),
+    //   canvas.height - (itemHeight + itemOffset),
+    //   itemWidth,
+    //   itemHeight,
+    // );
+    // ctx.fillStyle = '#272530';
+    // ctx.fill();
 
     ctx.restore();
   }
@@ -101,8 +101,7 @@ const Page:FC<PageProps> = ({
       <Content useGrid={useGrid}>
         {children}
       </Content>
-
-      <canvas ref={canvasEl} />
+      {useCanvas && <Canvas ref={canvasEl} />}
     </PageContainer>
   );
 }

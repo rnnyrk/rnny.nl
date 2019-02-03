@@ -8,6 +8,7 @@ import { InterestsContainer, InterestBox, HoverImage, List, Title } from './styl
 const Interests = () => {
   const [visible, setVisible] = useState(false);
   const imageEl = useRef(null);
+  const interestsEl = useRef(null);
 
   const hoverImage = (image) => {
     if (image) {
@@ -19,14 +20,16 @@ const Interests = () => {
   };
 
   const followMouse = (event) => {
-    console.log('event', event);
+    const interestsRect = interestsEl.current.getBoundingClientRect();
 
-    imageEl.current.style.left = `${event.offsetX - 20}px`;
-    imageEl.current.style.top = `${event.offsetY + 60}px`;
+    Object.assign(imageEl.current.style, {
+      left: `${(event.pageX - interestsRect.left) + 20}px`,
+      top: `${(event.pageY - interestsRect.top) + 20}px`,
+    });
   };
 
   return (
-    <InterestsContainer>
+    <InterestsContainer ref={interestsEl}>
       <HoverImage
         ref={imageEl}
         pose={visible ? 'visible' : 'hidden'}

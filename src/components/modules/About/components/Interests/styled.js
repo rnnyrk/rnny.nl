@@ -6,6 +6,7 @@ export const InterestsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 40px;
+  position: relative;
 `;
 
 export const InterestBox = styled.div`
@@ -21,7 +22,7 @@ export const HoverImage = styled(posed.img({
   },
   hidden: {
     opacity: 0,
-    scale: 1.1,
+    scale: 1.2,
   },
 }))`
   position: absolute;

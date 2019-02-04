@@ -41,8 +41,7 @@ export const Letter = styled.span<LetterProps>`
 `;
 
 interface SocialProps {
-  // variant: 'purple' | 'white';
-  variant: string;
+  variant: '' | 'purple' | 'white'; // losse type van maken
 }
 
 export const Social = styled.div<SocialProps>`

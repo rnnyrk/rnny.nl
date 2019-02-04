@@ -1,5 +1,11 @@
 import { css } from 'styled-components';
 
+interface MediaSizes {
+  large: any;
+  desktop: any;
+  tablet: any;
+}
+
 export const sizes = {
   large: 1200,
   desktop: 992,
@@ -12,7 +18,7 @@ export const media = Object.keys(sizes).reduce((accumulator, label) => {
   const emSize = sizes[label] / 16;
   accumulator[label] = (...args) => css`@media (min-width: ${emSize}em) {${css(...args)};}`;
   return accumulator;
-}, {});
+}, {} as MediaSizes);
 
 export const hexToRgba = (hex, alpha = '0.2') => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);

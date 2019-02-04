@@ -38,6 +38,7 @@ const Interests = () => {
         <List>
           {data.books.map((item) => (
             <li
+              key={item.id}
               onMouseEnter={() => hoverImage(item.image)}
               onMouseLeave={() => hoverImage(false)}
               onMouseMove={(event) => followMouse(event)}
@@ -53,6 +54,7 @@ const Interests = () => {
         <List>
           {data.shows.map((item) => (
             <li
+              key={item.id}
               onMouseEnter={() => hoverImage(item.image)}
               onMouseLeave={() => hoverImage(false)}
               onMouseMove={(event) => followMouse(event)}
@@ -67,7 +69,7 @@ const Interests = () => {
         <Title>Most valuable bookmarks</Title>
         <List>
           {data.links.map((item) => (
-            <li>
+            <li key={item.id}>
               <a href={item.url} target="_blank" title={item.title}>
                 {item.title}
               </a>

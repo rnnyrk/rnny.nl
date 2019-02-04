@@ -24,4 +24,8 @@ export default createGlobalStyle`
     font-family: ${theme.font.sans};
     color: ${theme.black};
   }
+
+  p {
+    margin: 0 0 18px;
+  }
 `;

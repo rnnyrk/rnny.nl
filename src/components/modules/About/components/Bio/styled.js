@@ -8,6 +8,7 @@ export const Photo = styled.figure`
   overflow: hidden;
   background: ${(props) => props.theme.black};
   border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
 
   img {
     width: 100%;

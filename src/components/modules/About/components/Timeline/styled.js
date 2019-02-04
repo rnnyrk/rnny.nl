@@ -1,9 +1,9 @@
 import styled from 'styled-components';
+import { media } from 'styles/utils';
 
 export const Years = styled.div`
   position: relative;
-  flex-basis: 120px;
-  text-align: center;
+  flex-basis: 100px;
   font-size: 18px;
   font-family: ${(props) => props.theme.font.mono};
 
@@ -11,10 +11,9 @@ export const Years = styled.div`
     content: '';
     position: absolute;
     top: 45px;
-    left: 50%;
-    height: 100%;
+    left: 21.5px;
+    height: calc(100% - 45px);
     width: 2px;
-    margin-left: -1px;
     background: ${(props) => props.theme.gray};
   }
 `;
@@ -23,9 +22,36 @@ export const Content = styled.div`
   flex: 1;
 `;
 
-export const TimelineContainer = styled.div`
-  grid-column: 4 / span 6;
+export const Letter = styled.span`
+  opacity: ${(props) => props.visible ? 0 : 1};
+  margin: ${(props) => props.visible ? '0 -.32em' : '0'};
+  transition: opacity .2s ease-out,
+              margin .2s ease-in-out;
+`;
+
+export const Next = styled.div`
+  display: inline-block;
+  width: 100%;
+  margin-top: 90px;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  color: ${(props) => props.theme.gray.dark};
+  font-family: ${(props) => props.theme.font.mono};
+
+  ${media.desktop`
+    &:hover {
+      color: ${(props) => props.theme.purple.light};
+    }
+  `}
+`;
+
+export const Current = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+export const TimelineContainer = styled.section`
+  grid-column: 4 / span 6;
   margin-top: 75px;
 `;

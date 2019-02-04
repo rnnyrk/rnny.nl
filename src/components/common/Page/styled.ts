@@ -34,6 +34,6 @@ export const Content = styled.div<ContentProps>`
     align-content: flex-start;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 150px 0;
+    padding: 150px 0 50px;
   `}
 `

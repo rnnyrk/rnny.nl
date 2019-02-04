@@ -21,8 +21,8 @@ const Interests = () => {
     const interestsRect = interestsEl.current.getBoundingClientRect();
 
     Object.assign(imageEl.current.style, {
-      left: `${(event.pageX - interestsRect.left) + 10}px`,
-      top: `${(event.pageY - interestsRect.top) + 10}px`,
+      left: `${(event.pageX - interestsRect.left) + 15}px`,
+      top: `${(event.pageY - document.documentElement.scrollTop - interestsRect.top) + 15}px`,
     });
   };
 

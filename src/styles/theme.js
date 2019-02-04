@@ -1,6 +1,10 @@
 export default {
   black: '#000000',
-  gray: '#e4e4e4',
+  gray: Object.assign(
+    '#e4e4e4', {
+      dark: '#c2c2c2',
+    },
+  ),
   purple: Object.assign(
     '#1c1a25', {
       light: '#9991bc',

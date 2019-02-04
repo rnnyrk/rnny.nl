@@ -79,7 +79,7 @@ const Page:FC<PageProps> = ({
       itemWidth,
       itemHeight,
     );
-    ctx.fillStyle = '#9991BC';
+    ctx.fillStyle = '#9991bc';
     ctx.fill();
 
     // ctx.beginPath();

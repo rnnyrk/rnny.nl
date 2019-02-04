@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from 'styles/utils';
 import posed from 'react-pose';
 
 export const InterestsContainer = styled.div`
@@ -62,5 +63,16 @@ export const List = styled.ul`
       border-radius: 50%;
       background-color: ${(props) => props.theme.gray};
     }
+  }
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme.purple.light};
+
+    ${media.desktop`
+      &:hover {
+        color: ${(props) => props.theme.purple.dark};
+      }
+    `}
   }
 `;

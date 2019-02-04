@@ -12,6 +12,8 @@ const App = (props) => {
   const [color, setColor] = useState('purple');
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+
     if (props.location.pathname === '/about') {
       setColor('white');
     } else {

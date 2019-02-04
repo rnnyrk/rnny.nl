@@ -49,7 +49,7 @@ const Interests = () => {
       </InterestBox>
 
       <InterestBox>
-        <Title>Best series I've seen</Title>
+        <Title>Series I'd really enjoy</Title>
         <List>
           {data.shows.map((item) => (
             <li
@@ -64,7 +64,7 @@ const Interests = () => {
       </InterestBox>
 
       <InterestBox>
-        <Title>My favorite bookmarks</Title>
+        <Title>Most valuable bookmarks</Title>
         <List>
           {data.links.map((item) => (
             <li>

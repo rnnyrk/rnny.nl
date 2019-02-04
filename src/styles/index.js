@@ -23,9 +23,5 @@ export default createGlobalStyle`
     line-height: 28px;
     font-family: ${theme.font.sans};
     color: ${theme.black};
-
-    &.scrolled {
-      padding-top: 100px;
-    }
   }
 `;

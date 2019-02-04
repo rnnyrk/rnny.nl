@@ -3,8 +3,6 @@ import React, { useState, useRef } from 'react';
 import data from './data';
 import { InterestsContainer, InterestBox, HoverImage, List, Title } from './styled';
 
-// Add Typescript
-
 const Interests = () => {
   const [visible, setVisible] = useState(false);
   const imageEl = useRef(null);

@@ -20,10 +20,8 @@ const Header = () => {
 
   if (scrollY >= 10 && !scrolled) {
     setScrolled(true);
-    document.body.classList.add('scrolled');
   } else if (scrollY < 10 && scrolled) {
     setScrolled(false);
-    document.body.classList.remove('scrolled');
   }
 
   return (

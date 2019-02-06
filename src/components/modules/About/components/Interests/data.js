@@ -43,7 +43,7 @@ export default {
   links: [
     {
       id: 17,
-      title: 'The Costs of Javascript',
+      title: 'The Cost of Javascript',
       url: 'https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4',
     },
     {
@@ -53,7 +53,7 @@ export default {
     },
     {
       id: 19,
-      title: ' CSS Grid Complete Guide',
+      title: 'A Complete Guide to Grid',
       url: 'https://css-tricks.com/snippets/css/complete-guide-grid/',
     },
   ]

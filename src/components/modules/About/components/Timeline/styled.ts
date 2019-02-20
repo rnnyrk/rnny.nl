@@ -22,7 +22,11 @@ export const Content = styled.div`
   flex: 1;
 `;
 
-export const Letter = styled.span`
+type LetterProps = {
+  visible?: boolean;
+}
+
+export const Letter = styled.span<LetterProps>`
   opacity: ${(props) => props.visible ? 0 : 1};
   margin: ${(props) => props.visible ? '0 -.32em' : '0'};
   transition: opacity .2s ease-out,

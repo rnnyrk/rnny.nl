@@ -16,7 +16,7 @@ const Dialog:FC<DialogProps> = (
   document.getElementById('modal'),
 );
 
-interface DialogProps {
+type DialogProps = {
   isOpen: boolean;
   onClose: () => void;
   children?: any;

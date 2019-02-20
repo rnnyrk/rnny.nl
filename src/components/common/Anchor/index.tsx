@@ -10,7 +10,7 @@ export const Anchor = styled.a.attrs(({ href }) => ({
   color: inherit;
 `;
 
-interface PageProps {
+type PageProps = {
   position?: string;
 }
 

@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-interface MediaSizes {
+type MediaSizes = {
   large: any;
   desktop: any;
   tablet: any;

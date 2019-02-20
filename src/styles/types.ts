@@ -1,10 +1,13 @@
 import * as i from 'types';
 
-export interface Theme {
+export type Theme = {
   black: string;
-  gray: string;
+  gray: {
+    dark: string;
+  };
   purple: {
     dark: string;
+    light: string;
   };
   white: {
     off: string;
@@ -15,7 +18,7 @@ export interface Theme {
   };
 }
 
-export interface BaseStyled {
+export type BaseStyled = {
   theme?: i.Theme;
   className?: string;
 }

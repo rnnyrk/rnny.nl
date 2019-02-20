@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export interface PageProps {
+export type PageProps = {
   variant?: string;
 }
 
@@ -17,7 +17,7 @@ export const Canvas = styled.canvas`
   left: 0;
 `;
 
-export interface ContentProps {
+export type ContentProps = {
   useGrid?: boolean;
 }
 

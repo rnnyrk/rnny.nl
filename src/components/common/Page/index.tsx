@@ -106,7 +106,7 @@ const Page:FC<PageProps> = ({
   );
 }
 
-export interface PageProps {
+export type PageProps = {
   className: string,
   children: Node,
   location: object,

@@ -50,7 +50,7 @@ const Header = () => {
       </Name>
 
       <Social variant={currentColor}>
-        <Mail onClick={() => setDialog(true)} />
+        <Mail onClick={() => console.log('test') || setDialog(true)} />
         <Anchor href="https://www.linkedin.com/in/ronny-rook-02ab1622/">
           <Linkedin />
         </Anchor>

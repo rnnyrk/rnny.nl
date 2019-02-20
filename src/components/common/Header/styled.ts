@@ -8,10 +8,10 @@ interface HeaderContainerProps {
 
 export const HeaderContainer = styled.header<HeaderContainerProps>`
   position: absolute;
+  z-index: 2;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1;
   display: flex;
   justify-content: space-between;
   padding: 20px 30px;

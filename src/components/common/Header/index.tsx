@@ -1,21 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 
 import useWindowScrollPosition from 'services/hooks/windowScroll';
-import Mail from 'vectors/mail.svg';
-import Linkedin from 'vectors/linkedin.svg';
-import Twitter from 'vectors/twitter.svg';
+import Social from 'common/Social';
 
-import { ColorContext } from 'services/context/ColorContext';
-import { Anchor } from 'common/Anchor';
-import Dialog from 'common/Dialog';
-
-import { HeaderContainer, Letter, Name, Social } from './styled';
+import { HeaderContainer, Letter, Name } from './styled';
 
 const Header = () => {
-  const [dialog, setDialog] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  const currentColor = useContext(ColorContext);
   const scrollY = useWindowScrollPosition();
 
   if (scrollY >= 10 && !scrolled) {
@@ -26,8 +17,6 @@ const Header = () => {
 
   return (
     <HeaderContainer scrolled={scrolled}>
-      <Dialog isOpen={dialog} onClose={() => setDialog(false)} />
-
       <Name>
         <Letter
           visible={scrolled}
@@ -49,15 +38,7 @@ const Header = () => {
         />
       </Name>
 
-      <Social variant={currentColor}>
-        <Mail onClick={() => console.log('test') || setDialog(true)} />
-        <Anchor href="https://www.linkedin.com/in/ronny-rook-02ab1622/">
-          <Linkedin />
-        </Anchor>
-        <Anchor href="https://twitter.com/rnnyrk">
-          <Twitter />
-        </Anchor>
-      </Social>
+      <Social />
     </HeaderContainer>
   );
 }

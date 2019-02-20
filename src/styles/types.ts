@@ -1,4 +1,4 @@
-import * as i from 'types';
+import * as t from 'types';
 
 export type Theme = {
   black: string;
@@ -19,6 +19,6 @@ export type Theme = {
 }
 
 export type BaseStyled = {
-  theme?: i.Theme;
+  theme?: t.Theme;
   className?: string;
 }

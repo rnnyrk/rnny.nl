@@ -1,25 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { PoseGroup } from 'react-pose';
 import GlobalStyle from 'styles';
+import * as t from 'types';
 
 import { ColorContext } from 'services/context/ColorContext';
 import { PoseBackground, PoseContainer } from 'common/Animation';
 import Home from 'modules/Home';
 import About from 'modules/About';
 
-const App = (props) => {
+const App:FC<AppProps> = ({ location }) => {
   const [color, setColor] = useState('purple');
 
   useEffect(() => {
     window.scrollTo(0, 0)
 
-    if (props.location.pathname === '/about') {
+    if (location.pathname === '/about') {
       setColor('white');
     } else {
       setColor('purple');
     }
-  }, [props.location.pathname]);
+  }, [location.pathname]);
 
   return (
     <PoseBackground pose={color}>
@@ -33,11 +34,11 @@ const App = (props) => {
                   <Route
                     exact
                     path="/"
-                    render={props => <Home {...props} />}
+                    render={(props) => <Home {...props} />}
                   />
                   <Route
                     path="/about"
-                    render={props => <About {...props} />}
+                    render={(props) => <About {...props} />}
                   />
                 </Switch>
               </PoseContainer>
@@ -48,5 +49,7 @@ const App = (props) => {
     </PoseBackground>
   );
 }
+
+type AppProps = t.RouteComponentProps;
 
 export default withRouter(App);

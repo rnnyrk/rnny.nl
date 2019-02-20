@@ -1,3 +1,3 @@
 import { createContext } from 'react';
 
-export const ColorContext = createContext<'' | 'purple' | 'white'>('');
+export const ColorContext = createContext<string | 'purple' | 'white'>('');

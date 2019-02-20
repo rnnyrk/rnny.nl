@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { media } from 'styles/utils';
 
 export type PageProps = {
   variant?: string;
@@ -28,12 +29,18 @@ export const Content = styled.div<ContentProps>`
   padding: 150px 30px;
 
   ${(props) => props.useGrid && css`
-    display: grid;
-    grid-template-columns: repeat(12, 80px);
-    grid-gap: 20px;
-    align-content: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 150px 0 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    ${media.tablet`
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: 20px;
+      align-content: flex-start;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 150px 0 50px;
+    `}
   `}
 `

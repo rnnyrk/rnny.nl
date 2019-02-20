@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { media } from 'styles/utils';
 
 import { SocialList } from 'common/Social/styled';
 
@@ -22,6 +23,10 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
 
   ${SocialList} {
     display: none;
+
+    ${media.tablet`
+      display: flex;
+    `}
   }
 `;
 

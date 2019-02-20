@@ -1,7 +1,8 @@
-import React, { FC, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 
 import Mail from 'vectors/mail.svg';
 import Linkedin from 'vectors/linkedin.svg';
+import Github from 'vectors/github.svg';
 import Twitter from 'vectors/twitter.svg';
 
 import { ColorContext } from 'services/context/ColorContext';
@@ -19,6 +20,9 @@ const Social = () => {
       <Dialog isOpen={dialog} onClose={() => setDialog(false)} />
       <SocialList variant={currentColor}>
         <Mail onClick={() => setDialog(true)} />
+        <Anchor href="https://github.com/rnnyrk">
+          <Github />
+        </Anchor>
         <Anchor href="https://www.linkedin.com/in/ronny-rook-02ab1622/">
           <Linkedin />
         </Anchor>

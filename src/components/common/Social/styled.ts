@@ -3,11 +3,11 @@ import { media } from 'styles/utils';
 
 import { Anchor } from 'common/Anchor';
 
-type SocialProps = {
+type SocialListProps = {
   variant: '' | 'purple' | 'white'; // losse type van maken
 }
 
-export const SocialContainer = styled.div<SocialProps>`
+export const SocialList = styled.div<SocialListProps>`
   display: flex;
   align-items: center;
 

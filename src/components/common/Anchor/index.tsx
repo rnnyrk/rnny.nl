@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { media } from 'styles/utils';
 import { Link } from 'react-router-dom';
 
 export const Anchor = styled.a.attrs(({ href }) => ({
@@ -15,6 +16,7 @@ type PageProps = {
 }
 
 export const PageLink = styled(Link)<PageProps>`
+  display: none;
   position: fixed;
   z-index: 1;
   bottom: 0;
@@ -29,5 +31,9 @@ export const PageLink = styled(Link)<PageProps>`
   ${(props) => props.position === 'right' && css`
     left: auto;
     right: 0;
+  `}
+
+  ${media.tablet`
+    display: block;
   `}
 `;

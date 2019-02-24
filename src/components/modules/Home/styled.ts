@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { media } from 'styles/utils';
 
+// @ts-ignore
 import Presentation from 'images/presentation-desktop.png?external';
 import Page from 'common/Page';
 

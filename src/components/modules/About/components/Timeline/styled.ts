@@ -1,7 +1,17 @@
 import styled from 'styled-components';
 import { media } from 'styles/utils';
 
-export const Years = styled.div`
+export const Year = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+`;
+
+export const YearNumber = styled.div`
   position: relative;
   flex-basis: 100px;
   font-size: 18px;
@@ -22,6 +32,12 @@ export const Content = styled.div`
   flex: 1;
 `;
 
+export const TimelineContainer = styled.section`
+  grid-column: 4 / span 6;
+  margin-top: 75px;
+`;
+
+// todo
 type LetterProps = {
   visible?: boolean;
 }
@@ -48,14 +64,4 @@ export const Next = styled.div`
       color: ${(props) => props.theme.purple.light};
     }
   `}
-`;
-
-export const Current = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const TimelineContainer = styled.section`
-  grid-column: 4 / span 6;
-  margin-top: 75px;
 `;

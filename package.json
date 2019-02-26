@@ -24,10 +24,10 @@
     "prop-types": "^15.6.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
+    "react-pose": "^4.0.7",
     "react-redux": "^6.0.0",
     "react-router": "4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-spring": "^8.0.7",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.1.3"

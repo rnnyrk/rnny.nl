@@ -1,33 +1,28 @@
 import React, { useState } from 'react';
 
-import { Content, TimelineContainer, Year, YearNumber } from './styled';
+import data from './data';
+import { Content, TimelineContainer, TimelineContent, Years, YearNumber } from './styled';
 
 const Timeline = () => {
   const [visible, setVisible] = useState(false);
+  const [year, setYear] = useState(2018);
 
   return (
     <TimelineContainer>
-      <Year>
-        <YearNumber>
-          2018
-        </YearNumber>
-        <Content>
-          <p>Graduated Communication &amp; Multimedia Design at The University of Amsterdam with a 9. I’ve got the oppertunity to work on a project at Label A and created a transport sharing platform for companies in big cities using React Native. With this project I was nominated for a Golden Dot Award (Best Student Work Of The Year).</p>
-          <p>In June a signed a contract to start as a front-end developer at Label A. At Label A we create web- and mobile applications using the latest technologies. Within the front-end department we use React. In November I gave a talk on a meetup about performance in bigger front-end apps. You can read "How we optimized grocerie shopping" on my blog.</p>
-        </Content>
-      </Year>
+      <Years>
+        {data.timeline.map((current) => (
+          <YearNumber active={current.year === year}>{current.year}</YearNumber>
+        ))}
+      </Years>
 
-      <Year>
-        <YearNumber>
-          2017
-        </YearNumber>
-        <Content>
-          <p>In January I've joined BIT Students. An young and innovative company with the 50 best IT students in Amsterdam. In my time there I've worked for clients like Philips, 4Launch and MoneyYou as a designer and front-end developer.</p>
-          <p>As a freelance webdeveoper I've had my best year with projects like Zeker Van Een Baan and Vrachtbaan for Van Buuren Opleidingen. I've also completely reworked the website of my first client MVO Consultants.</p>
-          <p>In September I started my graduation internship at Label A as a front-end developer, working full-time with React and React.</p>
-          <p>Besides all this I was a Member of the T500 2017 from The Next Web. A list with 500 of the most ambitious, talented people in the Dutch digital scene.</p>
-        </Content>
-      </Year>
+      <TimelineContent>
+        {data.timeline.map((current) => (
+          <Content
+            active={current.year === year}
+            dangerouslySetInnerHTML={{ __html: current.text }}
+          />
+        ))}
+      </TimelineContent>
     </TimelineContainer>
   );
 }

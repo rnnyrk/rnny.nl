@@ -64,6 +64,8 @@ export const TimelineContainer = styled.section`
   grid-column: 4 / span 6;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 2;
   height: 450px;
   margin-top: 75px;
 `;

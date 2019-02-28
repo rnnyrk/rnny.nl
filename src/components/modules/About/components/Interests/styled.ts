@@ -27,8 +27,8 @@ export const HoverImage = styled(posed.img({
   },
 }))`
   position: absolute;
-  z-index: 1;
   max-width: 150px;
+  z-index: ${(props) => props.pose === 'visible' ? 3 : 1};
   margin: 0;
   border: 6px solid ${(props) => props.theme.white};
   box-shadow: 0 2px 4px rgba(0, 0, 0, .1);

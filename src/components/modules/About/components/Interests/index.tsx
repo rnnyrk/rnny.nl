@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 
 import data from './data';
+import { isTablet } from 'services/devices';
 import { InterestsContainer, InterestBox, HoverImage, List, Title } from './styled';
 
 const Interests = () => {
@@ -18,6 +19,8 @@ const Interests = () => {
   };
 
   const followMouse = (event) => {
+    if (isTablet()) return;
+
     const interestsRect = interestsEl.current.getBoundingClientRect();
 
     Object.assign(imageEl.current.style, {
@@ -28,10 +31,12 @@ const Interests = () => {
 
   return (
     <InterestsContainer ref={interestsEl}>
-      <HoverImage
-        ref={imageEl}
-        pose={visible ? 'visible' : 'hidden'}
-      />
+      {!isTablet() && (
+        <HoverImage
+          ref={imageEl}
+          pose={visible ? 'visible' : 'hidden'}
+        />
+      )}
 
       <InterestBox>
         <Title>Best books I've read</Title>

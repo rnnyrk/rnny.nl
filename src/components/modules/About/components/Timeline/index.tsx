@@ -11,6 +11,7 @@ const Timeline = () => {
       <Years>
         {data.timeline.map((current) => (
           <YearNumber
+            key={`year_${current.id}`}
             active={current.year === year}
             onClick={() => setYear(current.year)}
           >
@@ -22,6 +23,7 @@ const Timeline = () => {
       <TimelineContent>
         {data.timeline.map((current) => (
           <Content
+            key={`content_${current.id}`}
             pose={current.year === year ? 'visible' : 'hidden'}
             dangerouslySetInnerHTML={{ __html: current.text }}
           />

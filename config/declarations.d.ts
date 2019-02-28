@@ -3,11 +3,6 @@ declare const __DEV__: boolean;
 declare const __PROD__: boolean;
 declare const __ACC__: boolean;
 
-// extend window object
-interface Window {
-  __REDUX_DEVTOOLS_EXTENSION__: Function;
-}
-
 // extend NodeJS modules
 interface NodeModule {
   hot: {

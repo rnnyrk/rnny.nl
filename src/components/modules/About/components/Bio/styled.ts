@@ -52,5 +52,11 @@ export const BioHeader = styled.div`
 `;
 
 export const BioContainer = styled.div`
-  grid-column: 4 / span 6;
+  ${media.tablet`
+    grid-column: 3 / span 7;
+  `}
+
+  ${media.desktop`
+    grid-column: 4 / span 6;
+  `}
 `;

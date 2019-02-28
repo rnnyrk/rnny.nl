@@ -4,7 +4,14 @@ import posed from 'react-pose';
 
 export const Years = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-basis: 100%;
+  margin-bottom: 20px;
+
+  ${media.tablet`
+    flex-basis: auto;
+    flex-direction: column;
+    margin: 0;
+  `}
 `;
 
 type YearNumberProps = {
@@ -13,21 +20,33 @@ type YearNumberProps = {
 
 export const YearNumber = styled.div<YearNumberProps>`
   position: relative;
-  height: 100px;
-  margin-bottom: 35px;
+  width: 100px;
+  margin-right: 35px;
   font-size: 18px;
   font-family: ${(props) => props.theme.font.mono};
   opacity: .5;
   cursor: pointer;
 
+  ${media.tablet`
+    height: 100px;
+    margin: 0 0 35px;
+  `}
+
   &:before {
     content: '';
     position: absolute;
-    top: 35px;
-    left: 21.5px;
-    width: 2px;
-    height: calc(100% - 35px);
+    top: 13px;
+    left: 55px;
+    height: 2px;
+    width: calc(100% - 35px);
     background: ${(props) => props.theme.gray};
+
+    ${media.tablet`
+      top: 35px;
+      left: 21.5px;
+      width: 2px;
+      height: calc(100% - 35px);
+    `}
   }
 
   ${(props) => props.active && css`
@@ -48,7 +67,7 @@ export const Content = styled(posed.div({
     top: '30px',
     opacity: 0,
   },
-}))`
+}))<ContentProps>`
   position: absolute;
   top: 0;
   left: 0;
@@ -61,14 +80,24 @@ export const TimelineContent = styled.div`
 `;
 
 export const TimelineContainer = styled.section`
-  grid-column: 4 / span 6;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 100%;
   position: relative;
   z-index: 2;
-  height: 450px;
-  margin-top: 75px;
+  height: 800px;
+  margin-top: 30px;
+
+  ${media.tablet`
+    grid-column: 4 / span 6;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    height: 450px;
+    margin-top: 75px;
+  `}
 `;
+
 
 // todo
 type LetterProps = {

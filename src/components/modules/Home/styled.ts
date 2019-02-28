@@ -29,6 +29,10 @@ export const Homepage = styled(Page)`
   ${Content} {
     align-items: flex-end;
     height: 100vh;
+
+    ${media.tablet`
+      align-items: center;
+    `}
   }
 `;
 

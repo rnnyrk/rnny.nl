@@ -3,17 +3,30 @@ import { media } from 'styles/utils';
 import posed from 'react-pose';
 
 export const InterestsContainer = styled.div`
-  grid-column: 2 / span 10;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
+  margin-top: 30px;
+
+  ${media.tablet`
+    grid-column: 2 / span 10;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    margin: 0;
+  `}
 `;
 
 export const InterestBox = styled.div`
+  flex-basis: 100%;
   padding: 20px;
+  margin-bottom: 20px;
   border: 1px solid ${(props) => props.theme.gray};
   font-family: ${(props) => props.theme.font.mono};
+
+  ${media.tablet`
+    margin-bottom: 0;
+  `}
 `;
 
 export const HoverImage = styled(posed.img({

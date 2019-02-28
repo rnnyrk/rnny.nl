@@ -90,11 +90,16 @@ export const TimelineContainer = styled.section`
   margin-top: 30px;
 
   ${media.tablet`
-    grid-column: 4 / span 6;
+    grid-column: 3 / span 7;
     flex-wrap: nowrap;
     justify-content: space-between;
-    height: 450px;
+    height: 600px;
     margin-top: 75px;
+  `}
+
+  ${media.desktop`
+    grid-column: 4 / span 6;
+    height: 450px;
   `}
 `;
 

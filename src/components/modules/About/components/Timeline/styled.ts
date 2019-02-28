@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { media } from 'styles/utils';
+import posed from 'react-pose';
 
 export const Years = styled.div`
   display: flex;
@@ -16,7 +17,8 @@ export const YearNumber = styled.div<YearNumberProps>`
   margin-bottom: 35px;
   font-size: 18px;
   font-family: ${(props) => props.theme.font.mono};
-  opacity: .6;
+  opacity: .5;
+  cursor: pointer;
 
   &:before {
     content: '';
@@ -34,19 +36,23 @@ export const YearNumber = styled.div<YearNumberProps>`
 `;
 
 type ContentProps = {
-  active: boolean;
+  visible: boolean;
 }
 
-export const Content = styled.div<ContentProps>`
+export const Content = styled(posed.div({
+  visible: {
+    opacity: 1,
+    top: '0px',
+  },
+  hidden: {
+    top: '30px',
+    opacity: 0,
+  },
+}))`
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  opacity: 0;
-
-  ${(props) => props.active && css`
-    opacity: 1;
-  `}
 `;
 
 export const TimelineContent = styled.div`
@@ -58,7 +64,7 @@ export const TimelineContainer = styled.section`
   grid-column: 4 / span 6;
   display: flex;
   justify-content: space-between;
-  height: 380px;
+  height: 450px;
   margin-top: 75px;
 `;
 

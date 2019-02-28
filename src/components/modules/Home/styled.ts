@@ -4,6 +4,7 @@ import { media } from 'styles/utils';
 // @ts-ignore
 import Presentation from 'images/presentation-desktop.png?external';
 import Page from 'common/Page';
+import { Content } from 'common/Page/styled';
 
 export const Homepage = styled(Page)`
   flex-direction: column;
@@ -23,6 +24,11 @@ export const Homepage = styled(Page)`
       ${(props) => props.theme.purple},
       transparent
     );
+  }
+
+  ${Content} {
+    align-items: flex-end;
+    height: 100vh;
   }
 `;
 

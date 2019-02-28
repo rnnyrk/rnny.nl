@@ -1,39 +1,70 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { media } from 'styles/utils';
+import posed from 'react-pose';
 
-export const Year = styled.div`
+export const Years = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 60px;
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
+  flex-direction: column;
 `;
 
-export const YearNumber = styled.div`
+type YearNumberProps = {
+  active: boolean;
+}
+
+export const YearNumber = styled.div<YearNumberProps>`
   position: relative;
-  flex-basis: 100px;
+  height: 100px;
+  margin-bottom: 35px;
   font-size: 18px;
   font-family: ${(props) => props.theme.font.mono};
+  opacity: .5;
+  cursor: pointer;
 
   &:before {
     content: '';
     position: absolute;
-    top: 45px;
+    top: 35px;
     left: 21.5px;
-    height: calc(100% - 45px);
     width: 2px;
+    height: calc(100% - 35px);
     background: ${(props) => props.theme.gray};
   }
+
+  ${(props) => props.active && css`
+    opacity: 1;
+  `}
 `;
 
-export const Content = styled.div`
-  flex: 1;
+type ContentProps = {
+  visible: boolean;
+}
+
+export const Content = styled(posed.div({
+  visible: {
+    opacity: 1,
+    top: '0px',
+  },
+  hidden: {
+    top: '30px',
+    opacity: 0,
+  },
+}))`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+`;
+
+export const TimelineContent = styled.div`
+  flex-basis: 85%;
+  position: relative;
 `;
 
 export const TimelineContainer = styled.section`
   grid-column: 4 / span 6;
+  display: flex;
+  justify-content: space-between;
+  height: 450px;
   margin-top: 75px;
 `;
 

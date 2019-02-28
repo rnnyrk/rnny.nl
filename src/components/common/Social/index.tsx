@@ -19,7 +19,7 @@ const Social = () => {
     <>
       <Dialog isOpen={dialog} onClose={() => setDialog(false)} />
       <SocialList variant={currentColor}>
-        <Mail onClick={() => setDialog(true)} />
+        {/* <Mail onClick={() => setDialog(true)} /> */}
         <Anchor href="https://github.com/rnnyrk">
           <Github />
         </Anchor>

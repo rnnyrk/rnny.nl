@@ -34,9 +34,15 @@ const rotate = keyframes`
 
 export const BioHeader = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   margin-bottom: 25px;
+
+  ${media.tablet`
+    flex-direction: row;
+    justify-content: center;
+  `}
 
   ${media.desktop`
     &:hover ${Wave} {

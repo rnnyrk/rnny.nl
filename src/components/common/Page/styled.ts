@@ -27,7 +27,7 @@ export const Content = styled.div<ContentProps>`
   z-index: 1;
   display: flex;
   width: 100%;
-  padding: 30px;
+  padding: 90px 30px 30px;
 
   ${media.tablet`
     padding: 150px 30px;

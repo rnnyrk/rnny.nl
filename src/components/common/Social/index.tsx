@@ -8,6 +8,7 @@ import Twitter from 'vectors/twitter.svg';
 import { ColorContext } from 'services/context/ColorContext';
 import { Anchor } from 'common/Anchor';
 import Dialog from 'common/Dialog';
+import Form from 'common/Form';
 
 import { SocialList } from './styled';
 
@@ -17,9 +18,12 @@ const Social = () => {
 
   return (
     <>
-      <Dialog isOpen={dialog} onClose={() => setDialog(false)} />
+      <Dialog isOpen={dialog} onClose={() => setDialog(false)}>
+        <Form />
+      </Dialog>
+
       <SocialList variant={currentColor}>
-        {/* <Mail onClick={() => setDialog(true)} /> */}
+        <Mail onClick={() => setDialog(true)} />
         <Anchor href="https://github.com/rnnyrk">
           <Github />
         </Anchor>

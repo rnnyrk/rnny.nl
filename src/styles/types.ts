@@ -9,6 +9,7 @@ export type Theme = {
     dark: string;
     light: string;
   };
+  red: string;
   white: {
     off: string;
   };

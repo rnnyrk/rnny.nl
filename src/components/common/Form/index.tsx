@@ -3,7 +3,7 @@ import { Form as FinalForm, Field } from 'react-final-form'
 
 import Button from 'common/Button';
 
-import { Error, FormContainer, Fieldset, Label, Input, Optional } from './styled';
+import { Error, FormContainer, Fieldset, Label, Input, Optional, Textarea } from './styled';
 
 const Form = () => {
   const onSubmit = () => {
@@ -39,8 +39,8 @@ const Form = () => {
           <Field name="phone">
             {({ input, meta }) => (
               <Fieldset>
-                <Label>Phone <Optional>optional</Optional></Label>
-                <Input type="tel" {...input} placeholder="Phone number.." />
+                <Label>Briefly message</Label>
+                <Textarea as="textarea" {...input} />
                 {meta.touched && meta.error && <Error>{meta.error}</Error>}
               </Fieldset>
             )}

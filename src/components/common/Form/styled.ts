@@ -31,8 +31,14 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   flex-basis: 100%;
-  font-size: 16px;
-  padding: 5px;
+  font-size: 14px;
+  padding: 15px;
+  border: 1px solid ${(props) => props.theme.gray};
+  font-family: ${(props) => props.theme.font.mono};
+`;
+
+export const Textarea = styled(Input)`
+  min-height: 100px;
 `;
 
 export const Optional = styled.small`

@@ -1,8 +1,5 @@
-import styled from 'styled-components';
-
-export const Error = styled.span`
-  color: ${(props) => props.theme.red};
-`;
+import styled, { css } from 'styled-components';
+import posed from 'react-pose';
 
 export const Fieldset = styled.div`
   flex-basis: 100%;
@@ -12,27 +9,44 @@ export const Fieldset = styled.div`
   margin-bottom: 20px;
 `;
 
-export const Label = styled.label`
+export const Label = styled(posed.label({
+  default: {
+    y: '11px',
+    cursor: 'text',
+  },
+  focus: {
+    y: '-20px',
+    cursor: 'default',
+  }
+}))`
   flex-basis: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 15px;
-  transform: translateY(-50%);
-  text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
   font-family: ${(props) => props.theme.font.mono};
+  text-transform: uppercase;
 `;
 
-export const InputField = styled.input`
+type InputFieldProps = {
+  error: boolean;
+};
+
+export const InputField = styled.input<InputFieldProps>`
   flex-basis: 100%;
   font-size: 14px;
   padding: 15px;
   border: 1px solid ${(props) => props.theme.gray};
   font-family: ${(props) => props.theme.font.mono};
+  transition: border-color .2s ease-in;
+
+  ${(props) => props.error && css`
+    border-color: ${(props) => props.theme.red};
+  `}
 `;
 
 export const Optional = styled.small`

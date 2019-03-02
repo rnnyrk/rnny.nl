@@ -1,22 +1,45 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState, useRef } from 'react';
 import { Field } from 'react-final-form';
 
-import { Error, Fieldset, Label, InputField, Textarea } from './styled';
+import { Fieldset, Label, InputField, Textarea } from './styled';
 
-const Input:FC<InputProps> = ({ label, name, type = 'input' }) => (
-  <Field name={name}>
-    {({ input, meta }) => (
-      <Fieldset>
-        <Label>{label}</Label>
-        {type === 'input'
-          ? <InputField type="text" {...input} />
-          : <Textarea as="textarea" {...input} />}
+const Input:FC<InputProps> = ({ label, name, type = 'input' }) => {
+  const inputEl = useRef(null);
+  const [focus, setFocus] = useState(false);
 
-        {meta.touched && meta.error && <Error>{meta.error}</Error>}
-      </Fieldset>
-    )}
-  </Field>
-);
+  useEffect(() => {
+    if (focus) {
+      inputEl.current.focus();
+    }
+  }, [focus]);
+
+  return (
+    <Field name={name}>
+      {({ input, meta }) => (
+        <Fieldset onClick={() => setFocus(true)}>
+          <Label pose={focus ? 'focus' : 'default'}>{label}</Label>
+          {type === 'textarea' ? (
+            <Textarea
+              {...input}
+              as="textarea"
+              ref={inputEl}
+              error={meta.touched && meta.error}
+              onBlur={() => setFocus(false)}
+            />
+          ) : (
+            <InputField
+              {...input}
+              type="text"
+              ref={inputEl}
+              error={meta.touched && meta.error}
+              onBlur={() => setFocus(false)}
+            />
+          )}
+        </Fieldset>
+      )}
+    </Field>
+  );
+}
 
 type InputProps = {
   label: string;

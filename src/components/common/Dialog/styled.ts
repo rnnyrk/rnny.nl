@@ -42,6 +42,6 @@ export const DialogBody = styled(posed.div({
   left: 50%;
   width: 50vw;
   max-width: 600px;
-  height: 50vh;
+  min-height: 200px;
   background: ${(props) => props.theme.white};
 `;

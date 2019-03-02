@@ -6,7 +6,8 @@ import Github from 'vectors/github.svg';
 import Twitter from 'vectors/twitter.svg';
 import { ColorContext } from 'services/context/ColorContext';
 
-import { Anchor, Dialog, Form } from 'common';
+import { Anchor, Dialog } from 'common';
+import Form from 'modules/Form';
 import { SocialList } from './styled';
 
 const Social = () => {

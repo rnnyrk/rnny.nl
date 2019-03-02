@@ -1,15 +1,19 @@
 import styled, { css } from 'styled-components';
 import { media } from 'styles/utils';
 
-import { Anchor } from 'common/Anchor';
+import { Anchor } from 'common';
 
 type SocialListProps = {
   variant: '' | 'purple' | 'white'; // losse type van maken
 }
 
 export const SocialList = styled.div<SocialListProps>`
-  display: flex;
-  align-items: center;
+  display: none;
+
+  ${media.tablet`
+    display: flex;
+    align-items: center;
+  `}
 
   svg,
   ${Anchor} {

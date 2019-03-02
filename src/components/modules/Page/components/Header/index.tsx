@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import useWindowScrollPosition from 'services/hooks/windowScroll';
-import Social from 'common/Social';
-
 import { HeaderContainer, Letter, Name } from './styled';
 
-const Header = () => {
+const Header:FC<HeaderProps> = ({ children }) => {
   const [scrolled, setScrolled] = useState(false);
   const scrollY = useWindowScrollPosition();
 
@@ -38,9 +36,13 @@ const Header = () => {
         />
       </Name>
 
-      <Social />
+      {children}
     </HeaderContainer>
   );
+}
+
+type HeaderProps = {
+  children?: any;
 }
 
 export default Header;

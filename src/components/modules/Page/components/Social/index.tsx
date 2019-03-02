@@ -4,12 +4,9 @@ import Mail from 'vectors/mail.svg';
 import Linkedin from 'vectors/linkedin.svg';
 import Github from 'vectors/github.svg';
 import Twitter from 'vectors/twitter.svg';
-
 import { ColorContext } from 'services/context/ColorContext';
-import { Anchor } from 'common/Anchor';
-import Dialog from 'common/Dialog';
-import Form from 'common/Form';
 
+import { Anchor, Dialog, Form } from 'common';
 import { SocialList } from './styled';
 
 const Social = () => {

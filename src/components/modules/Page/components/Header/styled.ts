@@ -1,7 +1,4 @@
 import styled, { css } from 'styled-components';
-import { media } from 'styles/utils';
-
-import { SocialList } from 'common/Social/styled';
 
 type HeaderContainerProps = {
   scrolled?: boolean;
@@ -20,14 +17,6 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
   ${(props) => props.scrolled && css`
     position: fixed;
   `}
-
-  ${SocialList} {
-    display: none;
-
-    ${media.tablet`
-      display: flex;
-    `}
-  }
 `;
 
 export const Name = styled.h1`

@@ -3,8 +3,8 @@ import { media } from 'styles/utils';
 
 // @ts-ignore
 import Presentation from 'images/presentation-desktop.png?external';
-import Page from 'common/Page';
-import { Content } from 'common/Page/styled';
+import Page from 'modules/Page';
+import { Content } from 'modules/Page/styled';
 
 export const Homepage = styled(Page)`
   flex-direction: column;

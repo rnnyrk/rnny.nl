@@ -1,8 +1,7 @@
 import React, { FC, useEffect, useRef } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import Header from 'common/Header';
-
+import { Header, Social } from './components';
 import { Canvas, Content, PageContainer } from './styled';
 
 const Page:FC<PageProps> = ({
@@ -97,7 +96,9 @@ const Page:FC<PageProps> = ({
 
   return (
     <PageContainer className={className}>
-      <Header />
+      <Header>
+        <Social />
+      </Header>
       <Content useGrid={useGrid}>
         {children}
       </Content>

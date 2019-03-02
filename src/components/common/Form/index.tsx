@@ -1,8 +1,7 @@
 import React from 'react';
-import { Form as FinalForm, Field } from 'react-final-form'
+import { Form as FinalForm, Field } from 'react-final-form';
 
-import Button from 'common/Button';
-
+import { Button, Title } from 'common';
 import { Error, FormContainer, Fieldset, Label, Input, Optional, Textarea } from './styled';
 
 const Form = () => {
@@ -16,11 +15,12 @@ const Form = () => {
       // validate={validate}
       render={({ handleSubmit, pristine, invalid }) => (
         <FormContainer onSubmit={handleSubmit}>
+          <Title>Get in touch</Title>
+
           <Field name="name">
             {({ input, meta }) => (
               <Fieldset>
-                <Label>Name</Label>
-                <Input type="text" {...input} placeholder="Name.." />
+                <Input type="text" {...input} placeholder="Name" />
                 {meta.touched && meta.error && <Error>{meta.error}</Error>}
               </Fieldset>
             )}
@@ -29,8 +29,7 @@ const Form = () => {
           <Field name="email">
             {({ input, meta }) => (
               <Fieldset>
-                <Label>E-mail</Label>
-                <Input type="email" {...input} placeholder="E-mail.." />
+                <Input type="email" {...input} placeholder="E-mail" />
                 {meta.touched && meta.error && <Error>{meta.error}</Error>}
               </Fieldset>
             )}
@@ -39,8 +38,7 @@ const Form = () => {
           <Field name="phone">
             {({ input, meta }) => (
               <Fieldset>
-                <Label>Briefly message</Label>
-                <Textarea as="textarea" {...input} />
+                <Textarea as="textarea" placeholder="Leave your message briefly" {...input} />
                 {meta.touched && meta.error && <Error>{meta.error}</Error>}
               </Fieldset>
             )}

@@ -13,6 +13,7 @@
     "jsx": "react",
     "baseUrl": "src",
     "paths": {
+      "common": ["components/common/index"],
       "common/*": ["components/common/*"],
       "components/*": ["components/*"],
       "config/*": ["config/*"],

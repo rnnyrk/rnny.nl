@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { PageLink } from 'common/Anchor';
-
+import { PageLink } from 'common';
 import { Usp, Homepage } from './styled';
 
 const Home = () => (

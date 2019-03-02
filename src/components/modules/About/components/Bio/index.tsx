@@ -2,7 +2,6 @@ import React from 'react';
 
 // @ts-ignore
 import Ronny from 'images/ronny-rook.png?external';
-
 import { BioContainer, BioHeader, Photo, Title, Wave } from './styled';
 
 const Bio = () => (

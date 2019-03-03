@@ -2,11 +2,11 @@ import styled, { css } from 'styled-components';
 import { media } from 'styles/utils';
 import { Link } from 'react-router-dom';
 
-type PageProps = {
-  position?: string;
+type PageLinkProps = {
+  position?: 'left' | 'right';
 }
 
-const PageLink = styled(Link)<PageProps>`
+const PageLink = styled(Link)<PageLinkProps>`
   display: none;
   position: fixed;
   z-index: 1;

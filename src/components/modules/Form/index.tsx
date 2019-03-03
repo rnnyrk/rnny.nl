@@ -7,7 +7,7 @@ import Input from './components/Input';
 import { FormContainer, FormHeader, SubmitButton } from './styled';
 
 const Form = () => {
-  const onSubmit = (values) => {
+  const onSubmit = (values: FormValues) => {
     console.log('values', values);
   }
 
@@ -34,5 +34,11 @@ const Form = () => {
     />
   );
 };
+
+type FormValues = {
+  name: string;
+  email: string;
+  message: string;
+}
 
 export default Form;

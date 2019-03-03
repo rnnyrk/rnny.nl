@@ -8,7 +8,7 @@ import { FormContainer, FormHeader, SubmitButton } from './styled';
 
 const Form = () => {
   const onSubmit = (values) => {
-    console.log('submit', values);
+    console.log('values', values);
   }
 
   return (

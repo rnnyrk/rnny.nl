@@ -45,6 +45,10 @@ export const InputField = styled.input<InputFieldProps>`
   font-family: ${(props) => props.theme.font.mono};
   transition: border-color .2s ease-in;
 
+  &:focus {
+    border-color: ${(props) => props.theme.purple.light};
+  }
+
   ${(props) => props.error && css`
     border-color: ${(props) => props.theme.red};
   `}

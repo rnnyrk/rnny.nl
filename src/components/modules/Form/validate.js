@@ -1,3 +1,8 @@
+const isValidEmail = (value) => {
+  if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) return true;
+  return false;
+};
+
 const validate = (values) => {
   const errors = {};
 
@@ -5,7 +10,7 @@ const validate = (values) => {
     errors.name = true;
   }
 
-  if (!values.email) {
+  if (!values.email || !isValidEmail(values.email)) {
     errors.email = true;
   }
 

@@ -4,11 +4,17 @@ import { media } from 'styles/utils';
 import { Button, Title } from 'common';
 
 export const FormHeader = styled.header`
+  width: 100%;
   margin-bottom: 25px;
+  padding-right: 30px;
 
   ${Title} {
     margin-bottom: 5px;
   }
+
+  ${media.desktop`
+    padding-right: 0;
+  `}
 `;
 
 export const FormContainer = styled.form`

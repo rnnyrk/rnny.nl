@@ -1,5 +1,23 @@
 import styled from 'styled-components';
+import { media } from 'styles/utils';
 import posed from 'react-pose';
+
+import Close from 'vectors/close.svg';
+
+export const CloseDialog = styled(Close)`
+  position: absolute;
+  top: 30px;
+  right: 23px;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  cursor: pointer;
+  fill: ${(props) => props.theme.gray};
+
+  ${media.desktop`
+    display: none;
+  `}
+`;
 
 export const DialogOverlay = styled(posed.div({
   enter: { opacity: 1 },
@@ -38,10 +56,18 @@ export const DialogBody = styled(posed.div({
 }))`
   position: absolute;
   z-index: 4;
-  top: 200px;
+  top: 0;
   left: 50%;
-  width: 50vw;
-  max-width: 600px;
-  min-height: 200px;
+  width: 100vw;
+  height: 100vh;
   background: ${(props) => props.theme.white};
+
+  ${media.tablet`
+    top: 200px;
+    left: 50%;
+    width: 50vw;
+    height: auto;
+    max-width: 600px;
+    min-height: 200px;
+  `}
 `;

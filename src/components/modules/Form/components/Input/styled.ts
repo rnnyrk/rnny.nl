@@ -6,7 +6,7 @@ export const Fieldset = styled.div`
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 
 export const Label = styled(posed.label({
@@ -15,8 +15,8 @@ export const Label = styled(posed.label({
     cursor: 'text',
   },
   focus: {
-    y: '-20px',
-    cursor: 'default',
+    y: '-15px',
+    cursor: 'pointer',
   }
 }))`
   flex-basis: 100%;
@@ -40,7 +40,8 @@ export const InputField = styled.input<InputFieldProps>`
   flex-basis: 100%;
   font-size: 14px;
   padding: 15px;
-  border: 1px solid ${(props) => props.theme.gray};
+  border: 0;
+  border-bottom: 1px solid ${(props) => props.theme.gray};
   font-family: ${(props) => props.theme.font.mono};
   transition: border-color .2s ease-in;
 
@@ -56,4 +57,5 @@ export const Optional = styled.small`
 
 export const Textarea = styled(InputField)`
   min-height: 100px;
+  max-width: 100%;
 `;

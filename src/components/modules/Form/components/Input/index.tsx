@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, useRef } from 'react';
+import React, { FC, useState, useRef, useEffect } from 'react';
 import { Field } from 'react-final-form';
 
 import { Fieldset, Label, InputField, Textarea } from './styled';
@@ -7,16 +7,25 @@ const Input:FC<InputProps> = ({ label, name, type = 'input' }) => {
   const inputEl = useRef(null);
   const [focus, setFocus] = useState(false);
 
-  useEffect(() => {
-    if (focus) {
-      inputEl.current.focus();
+  const handleFocus = (event) => {
+    if (!focus) {
+      setFocus(true);
+      event ? event.currentTarget.focus() : inputEl.current.focus();
     }
-  }, [focus]);
+  }
+
+  const handleBlur = (event, input) => {
+    input.onBlur(event);
+
+    if (!event.currentTarget.value) {
+      setFocus(false)
+    }
+  }
 
   return (
     <Field name={name}>
       {({ input, meta }) => (
-        <Fieldset onClick={() => setFocus(true)}>
+        <Fieldset onClick={handleFocus}>
           <Label pose={focus ? 'focus' : 'default'}>{label}</Label>
           {type === 'textarea' ? (
             <Textarea
@@ -24,7 +33,8 @@ const Input:FC<InputProps> = ({ label, name, type = 'input' }) => {
               as="textarea"
               ref={inputEl}
               error={meta.touched && meta.error}
-              onBlur={() => setFocus(false)}
+              onFocus={handleFocus}
+              onBlur={(event) => handleBlur(event, input)}
             />
           ) : (
             <InputField
@@ -32,7 +42,8 @@ const Input:FC<InputProps> = ({ label, name, type = 'input' }) => {
               type="text"
               ref={inputEl}
               error={meta.touched && meta.error}
-              onBlur={() => setFocus(false)}
+              onFocus={handleFocus}
+              onBlur={(event) => handleBlur(event, input)}
             />
           )}
         </Fieldset>

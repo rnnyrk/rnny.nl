@@ -2,20 +2,19 @@ import React from 'react';
 import { Form as FinalForm } from 'react-final-form';
 
 import validate from './validate';
-import { Button, Title } from 'common';
+import { Title } from 'common';
 import Input from './components/Input';
-import { FormContainer } from './styled';
+import { FormContainer, SubmitButton } from './styled';
 
 const Form = () => {
-  const onSubmit = () => {
-    console.log('submit');
+  const onSubmit = (values) => {
+    console.log('submit', values);
   }
 
   return (
     <FinalForm
       onSubmit={onSubmit}
       validate={values => validate(values)}
-      validateOnBlur
       render={({ handleSubmit, pristine, invalid }) => (
         <FormContainer onSubmit={handleSubmit}>
           <Title>Get in touch</Title>
@@ -24,9 +23,9 @@ const Form = () => {
           <Input name="email" label="E-mail" />
           <Input name="message" label="Leave your message briefly" type="textarea" />
 
-          <Button type="submit" disabled={pristine || invalid}>
+          <SubmitButton type="submit" disabled={pristine || invalid}>
             Send
-          </Button>
+          </SubmitButton>
         </FormContainer>
       )}
     />

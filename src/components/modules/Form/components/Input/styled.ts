@@ -6,7 +6,7 @@ export const Fieldset = styled.div`
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 `;
 
 export const Label = styled(posed.label({

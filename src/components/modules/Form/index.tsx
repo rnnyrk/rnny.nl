@@ -1,10 +1,10 @@
 import React from 'react';
 import { Form as FinalForm } from 'react-final-form';
 
-import validate from './validate';
+import validate from 'services/fieldValidation';
 import { Title } from 'common';
 import Input from './components/Input';
-import { FormContainer, SubmitButton } from './styled';
+import { FormContainer, FormHeader, SubmitButton } from './styled';
 
 const Form = () => {
   const onSubmit = (values) => {
@@ -17,7 +17,10 @@ const Form = () => {
       validate={values => validate(values)}
       render={({ handleSubmit, pristine, invalid }) => (
         <FormContainer onSubmit={handleSubmit}>
-          <Title>Get in touch</Title>
+          <FormHeader>
+            <Title as="h2">Get in touch</Title>
+            <p>Intersted in working together, or just want to talk?</p>
+          </FormHeader>
 
           <Input name="name" label="Name" />
           <Input name="email" label="E-mail" />

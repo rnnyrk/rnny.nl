@@ -3,14 +3,18 @@ import { media } from 'styles/utils';
 
 import { Button, Title } from 'common';
 
+export const FormHeader = styled.header`
+  margin-bottom: 25px;
+
+  ${Title} {
+    margin-bottom: 5px;
+  }
+`;
+
 export const FormContainer = styled.form`
   display: flex;
   flex-wrap: wrap;
   padding: 30px;
-
-  ${Title} {
-    margin-bottom: 50px;
-  }
 `;
 
 export const SubmitButton = styled(Button)`

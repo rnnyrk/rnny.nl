@@ -5,7 +5,7 @@ import GlobalStyle from 'styles';
 import * as t from 'types';
 
 import { ColorContext } from 'services/context/ColorContext';
-import { PoseBackground, PoseContainer } from 'common/Animation';
+import { PoseContainer } from 'common/Animation';
 import Home from 'modules/Home';
 import About from 'modules/About';
 
@@ -23,7 +23,7 @@ const App:FC<AppProps> = ({ location }) => {
   }, [location.pathname]);
 
   return (
-    <PoseBackground pose={color}>
+    <>
       <GlobalStyle />
       <Route
         render={({ location }) => (
@@ -46,7 +46,7 @@ const App:FC<AppProps> = ({ location }) => {
           </ColorContext.Provider>
         )}
       />
-    </PoseBackground>
+    </>
   );
 }
 

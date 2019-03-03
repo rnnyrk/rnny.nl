@@ -8,6 +8,11 @@ export type PageProps = {
 export const PageContainer = styled.section<PageProps>`
   display: flex;
   min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    ${(props) => props.theme.white.off},
+    ${(props) => props.theme.white}
+  );
 `;
 
 export const Canvas = styled.canvas`

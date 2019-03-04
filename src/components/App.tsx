@@ -10,7 +10,7 @@ import Home from 'modules/Home';
 import About from 'modules/About';
 
 const App:FC<AppProps> = ({ location }) => {
-  const [color, setColor] = useState('purple');
+  const [color, setColor] = useState<t.ColorType>('purple');
 
   useEffect(() => {
     window.scrollTo(0, 0)

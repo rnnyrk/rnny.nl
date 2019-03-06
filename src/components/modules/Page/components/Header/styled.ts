@@ -12,6 +12,7 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
   left: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 30px;
 
   ${(props) => props.scrolled && css`

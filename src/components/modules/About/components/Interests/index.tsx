@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 
 import data from './data';
-import { isTablet } from 'services/devices';
+import { checkTabletSize } from 'services/devices';
 import { InterestsContainer, InterestBox, HoverImage, List, Title } from './styled';
 
 const Interests = () => {
@@ -19,7 +19,7 @@ const Interests = () => {
   };
 
   const followMouse = (event) => {
-    if (isTablet()) return;
+    if (checkTabletSize()) return;
 
     const interestsRect = interestsEl.current.getBoundingClientRect();
 
@@ -31,7 +31,7 @@ const Interests = () => {
 
   return (
     <InterestsContainer ref={interestsEl}>
-      {!isTablet() && (
+      {!checkTabletSize() && (
         <HoverImage
           ref={imageEl}
           pose={visible ? 'visible' : 'hidden'}

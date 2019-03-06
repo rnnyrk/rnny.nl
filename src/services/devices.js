@@ -1,2 +1,2 @@
-export const isMobile = () => window.innerWidth <= 768;
-export const isTablet = () => window.innerWidth <= 992;
+export const checkMobileSize = () => window.innerWidth <= 768;
+export const checkTabletSize = () => window.innerWidth <= 992;

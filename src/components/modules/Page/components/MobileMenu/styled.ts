@@ -1,9 +1,11 @@
 import styled, { css } from 'styled-components';
 import { media } from 'styles/utils';
 import { Link } from 'react-router-dom';
+import * as t from 'types';
 
 type NavigationProps = {
   open: boolean;
+  variant?: t.ColorType;
 }
 
 export const Hamburger = styled.div<NavigationProps>`
@@ -43,6 +45,13 @@ export const Hamburger = styled.div<NavigationProps>`
       transform: rotate(45deg) translateY(0);
     }
   `}
+
+  ${(props) => props.variant === 'white' && css`
+    &:after,
+    &:before {
+      background: ${(props) => props.theme.black};
+    }
+  `}
 `;
 
 export const MobileNavigation = styled.nav<NavigationProps>`
@@ -66,19 +75,13 @@ export const MobileNavigation = styled.nav<NavigationProps>`
     transform: translateX(0);
   `}
 
+  ${(props) => props.variant === 'white' && css`
+    background: ${(props) => props.theme.white.off};
+  `}
+
   ${media.tablet`
     display: none;
   `}
-`;
-
-export const NavList = styled.ul`
-  flex: 2;
-  align-content: flex-start;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 30px;
-  margin-bottom: 30px;
-  list-style: none;
 `;
 
 export const NavItem = styled.li`
@@ -92,4 +95,28 @@ export const NavLink = styled(Link)`
   font-size: 22px;
   text-decoration: none;
   color: ${(props) => props.theme.white};
+`;
+
+type NavListProps = {
+  variant?: t.ColorType;
+}
+
+export const NavList = styled.ul<NavListProps>`
+  flex: 2;
+  align-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 30px;
+  margin-bottom: 30px;
+  list-style: none;
+
+  ${(props) => props.variant === 'white' && css`
+    ${NavItem} {
+      border-bottom: 1px solid rgba(0, 0, 0, .2);
+    }
+
+    ${NavLink} {
+      color: ${(props) => props.theme.black};
+    }
+  `}
 `;

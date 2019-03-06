@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
 
 import { Social } from '../';
 import { Hamburger, MobileNavigation, NavList, NavLink, NavItem } from './styled';
@@ -11,9 +10,13 @@ const MobileMenu = () => {
 
   return (
     <>
-      <Hamburger onClick={() => setOpen(!open)} open={open} />
-      <MobileNavigation open={open}>
-        <NavList>
+      <Hamburger
+        onClick={() => setOpen(!open)}
+        open={open}
+        variant={currentColor}
+      />
+      <MobileNavigation variant={currentColor} open={open}>
+        <NavList variant={currentColor}>
           <NavItem>
             <NavLink to="/">Home</NavLink>
           </NavItem>

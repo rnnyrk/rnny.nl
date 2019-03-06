@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
 import { media } from 'styles/utils';
+import * as t from 'types';
 
 import { Anchor } from 'common';
 
 type SocialListProps = {
-  variant: '' | 'purple' | 'white'; // losse type van maken
+  variant?: t.ColorType;
 }
 
 export const SocialList = styled.div<SocialListProps>`

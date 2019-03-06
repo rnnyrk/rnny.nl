@@ -20,7 +20,9 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
   `}
 `;
 
-export const Name = styled.h1`
+export const Name = styled.div`
+  position: relative;
+  z-index: 2;
   margin: 0;
   font-size: 22px;
   font-weight: 400;

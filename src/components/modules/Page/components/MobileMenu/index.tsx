@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Social } from '../';
-import { MobileNavigation, Hamburger } from './styled';
+import { Hamburger, MobileNavigation, NavList, NavLink, NavItem } from './styled';
 import { ColorContext } from 'services/context/ColorContext';
 
 const MobileMenu = () => {
@@ -12,10 +13,14 @@ const MobileMenu = () => {
     <>
       <Hamburger onClick={() => setOpen(!open)} open={open} />
       <MobileNavigation open={open}>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-        </ul>
+        <NavList>
+          <NavItem>
+            <NavLink to="/">Home</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink to="/about">About</NavLink>
+          </NavItem>
+        </NavList>
 
         <Social />
       </MobileNavigation>

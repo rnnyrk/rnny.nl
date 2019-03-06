@@ -9,10 +9,10 @@ type SocialListProps = {
 }
 
 export const SocialList = styled.div<SocialListProps>`
-  display: none;
+  display: flex;
+  padding: 0 30px;
 
   ${media.tablet`
-    display: flex;
     align-items: center;
   `}
 
@@ -31,13 +31,19 @@ export const SocialList = styled.div<SocialListProps>`
   }
 
   svg {
-    width: 25px;
-    height: 25px;
-    margin-right: 20px;
+    width: 30px;
+    height: 30px;
+    margin-right: 30px;
     cursor: pointer;
     fill: ${(props) => props.theme.white};
     opacity: .5;
     transition: opacity .2s;
+
+    ${media.tablet`
+      width: 25px;
+      height: 25px;
+      margin-right: 20px;
+    `}
 
     ${media.desktop`
       &:hover {

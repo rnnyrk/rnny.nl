@@ -40,6 +40,7 @@ export const InputField = styled.input<InputFieldProps>`
   flex-basis: 100%;
   font-size: 14px;
   padding: 15px;
+  outline: none;
   border: 0;
   border-bottom: 1px solid ${(props) => props.theme.gray};
   font-family: ${(props) => props.theme.font.mono};

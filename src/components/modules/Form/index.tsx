@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form as FinalForm } from 'react-final-form';
 
 import validate from 'services/fieldValidation';
@@ -7,8 +7,20 @@ import Input from './components/Input';
 import { FormContainer, FormHeader, SubmitButton } from './styled';
 
 const Form = () => {
+  const [sended, setSended] = useState(false);
+
   const onSubmit = (values: FormValues) => {
-    console.log('values', values);
+    fetch('http://localhost:8888/mail', {
+      method: 'POST',
+      body: JSON.stringify(values),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((response) => {
+      setSended(true);
+      console.log(response.json());
+    });
   }
 
   return (

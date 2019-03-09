@@ -24,6 +24,8 @@ export const FormContainer = styled.form`
 `;
 
 export const SubmitButton = styled(Button)`
+  font-size: 16px;
+
   &[disabled] {
     opacity: .5;
     cursor: not-allowed;

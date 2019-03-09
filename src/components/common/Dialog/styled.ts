@@ -6,10 +6,10 @@ import Close from 'vectors/close.svg';
 
 export const CloseDialog = styled(Close)`
   position: absolute;
-  top: 30px;
-  right: 23px;
-  width: 30px;
-  height: 30px;
+  top: 28px;
+  right: 20px;
+  width: 34px;
+  height: 34px;
   padding: 7px;
   cursor: pointer;
   fill: ${(props) => props.theme.gray};
@@ -23,7 +23,7 @@ export const DialogOverlay = styled(posed.div({
   enter: { opacity: 1 },
   exit: { opacity: 0 },
 }))`
-  position: absolute;
+  position: fixed;
   z-index: 3;
   top: 0;
   right: 0;
@@ -35,7 +35,7 @@ export const DialogOverlay = styled(posed.div({
 
 export const DialogBody = styled(posed.div({
   enter: {
-    y: 0,
+    y: '-50%',
     x: '-50%',
     scale: 1,
     opacity: 1,
@@ -45,7 +45,7 @@ export const DialogBody = styled(posed.div({
     },
   },
   exit: {
-    y: 50,
+    y: '-50%',
     x: '-50%',
     scale: 1.2,
     opacity: 0,
@@ -54,16 +54,32 @@ export const DialogBody = styled(posed.div({
     },
   },
 }))`
-  position: absolute;
+  position: fixed;
   z-index: 4;
-  top: 0;
+  top: 50%;
   left: 50%;
   width: 100vw;
   height: 100vh;
   background: ${(props) => props.theme.white};
 
+  &:before {
+    content: '';
+    width: 110vw;
+    height: 110vh;
+    position: absolute;
+    top: -5vh;
+    left: -5vw;
+    z-index: -1;
+    background: ${(props) => props.theme.white};
+
+    ${media.tablet`
+      display: none;
+    `}
+  }
+
   ${media.tablet`
-    top: 200px;
+    position: absolute;
+    top: 50%;
     left: 50%;
     width: 50vw;
     height: auto;

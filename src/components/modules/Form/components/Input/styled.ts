@@ -59,6 +59,7 @@ export const InputField = styled.input<InputFieldProps>`
   &:-webkit-autofill:focus {
     border-bottom: 1px solid ${(props) => props.theme.gray};
     -webkit-box-shadow: 0 0 0px 1000px ${(props) => props.theme.white} inset;
+    box-shadow: 0 0 0px 1000px ${(props) => props.theme.white} inset;
   }
 `;
 

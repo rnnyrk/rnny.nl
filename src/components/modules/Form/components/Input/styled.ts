@@ -15,7 +15,7 @@ export const Label = styled(posed.label({
     cursor: 'text',
   },
   focus: {
-    y: '-15px',
+    y: '-20px',
     cursor: 'pointer',
   }
 }))`
@@ -53,6 +53,13 @@ export const InputField = styled.input<InputFieldProps>`
   ${(props) => props.error && css`
     border-color: ${(props) => props.theme.red};
   `}
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    border-bottom: 1px solid ${(props) => props.theme.gray};
+    -webkit-box-shadow: 0 0 0px 1000px ${(props) => props.theme.white} inset;
+  }
 `;
 
 export const Optional = styled.small`

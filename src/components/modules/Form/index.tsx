@@ -23,18 +23,27 @@ const Form = () => {
       validate={values => validate(values)}
       render={({ handleSubmit, pristine, invalid }) => (
         <FormContainer onSubmit={handleSubmit}>
-          <FormHeader>
-            <Title as="h2">Get in touch</Title>
-            <p>Intersted in working together, or just want to talk?</p>
-          </FormHeader>
+          {sended ? (
+            <FormHeader>
+              <Title as="h2">Thanks for getting in touch!</Title>
+              <p>I will get back to you as soon as possible.</p>
+            </FormHeader>
+          ) : (
+            <>
+              <FormHeader>
+                <Title as="h2">Get in touch</Title>
+                <p>Intersted in working together, or just want to talk?</p>
+              </FormHeader>
 
-          <Input name="name" label="Name" />
-          <Input name="email" label="E-mail" />
-          <Input name="message" label="Leave your message briefly" type="textarea" />
+              <Input name="name" label="Name" />
+              <Input name="email" label="E-mail" />
+              <Input name="message" label="Leave your message briefly" type="textarea" />
 
-          <SubmitButton type="submit" disabled={pristine || invalid}>
-            Send
-          </SubmitButton>
+              <SubmitButton type="submit" disabled={pristine || invalid}>
+                Send
+              </SubmitButton>
+            </>
+          )}
         </FormContainer>
       )}
     />

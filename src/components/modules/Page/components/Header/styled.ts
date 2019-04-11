@@ -1,7 +1,4 @@
 import styled, { css } from 'styled-components';
-import { media } from 'styles/utils';
-
-import { SocialList } from 'common/Social/styled';
 
 type HeaderContainerProps = {
   scrolled?: boolean;
@@ -15,22 +12,17 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
   left: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 30px;
 
   ${(props) => props.scrolled && css`
     position: fixed;
   `}
-
-  ${SocialList} {
-    display: none;
-
-    ${media.tablet`
-      display: flex;
-    `}
-  }
 `;
 
-export const Name = styled.h1`
+export const Name = styled.div`
+  position: relative;
+  z-index: 2;
   margin: 0;
   font-size: 22px;
   font-weight: 400;

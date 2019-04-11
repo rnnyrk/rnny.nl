@@ -1,11 +1,8 @@
 import React from 'react';
 
-import { PageLink } from 'common/Anchor';
-import Page from 'common/Page';
-
-import Bio from './components/Bio';
-import Interests from './components/Interests';
-import Timeline from './components/Timeline';
+import { PageLink } from 'common';
+import Page from 'modules/Page';
+import { Bio, Interests, Timeline } from './components';
 
 const About = () => {
   return (

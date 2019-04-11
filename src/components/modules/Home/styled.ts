@@ -3,21 +3,36 @@ import { media } from 'styles/utils';
 
 // @ts-ignore
 import Presentation from 'images/presentation-desktop.png?external';
-import Page from 'common/Page';
-import { Content } from 'common/Page/styled';
+import Page from 'modules/Page';
+import { Content } from 'modules/Page/styled';
 
 export const Homepage = styled(Page)`
   flex-direction: column;
   justify-content: center;
-  background: url(${Presentation}) no-repeat center / cover;
+  color: ${(props) => props.theme.white};
+  background: linear-gradient(
+    135deg,
+    ${(props) => props.theme.purple},
+    ${(props) => props.theme.purple.dark}
+  );
 
+  &:after,
   &:before {
     content: '';
     position: absolute;
-    z-index: 1;
     top: 0;
     right: 0;
     left: 0;
+  }
+
+  &:after {
+    z-index: 0;
+    bottom: 0;
+    background: url(${Presentation}) no-repeat center / cover;
+  }
+
+  &:before {
+    z-index: 1;
     height: 250px;
     background: linear-gradient(
       to bottom,

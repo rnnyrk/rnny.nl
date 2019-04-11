@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 
 import data from './data';
-import { isTablet } from 'services/devices';
+import { checkTabletSize } from 'services/devices';
 import { InterestsContainer, InterestBox, HoverImage, List, Title } from './styled';
 
 const Interests = () => {
@@ -19,7 +19,7 @@ const Interests = () => {
   };
 
   const followMouse = (event) => {
-    if (isTablet()) return;
+    if (checkTabletSize()) return;
 
     const interestsRect = interestsEl.current.getBoundingClientRect();
 
@@ -31,59 +31,56 @@ const Interests = () => {
 
   return (
     <InterestsContainer ref={interestsEl}>
-      {!isTablet() && (
+      {!checkTabletSize() && (
         <HoverImage
           ref={imageEl}
           pose={visible ? 'visible' : 'hidden'}
         />
       )}
 
-      <InterestBox>
-        <Title>Best books I've read</Title>
-        <List>
-          {data.books.map((item) => (
-            <li
-              key={item.id}
-              onMouseEnter={() => hoverImage(item.image)}
-              onMouseLeave={() => hoverImage(false)}
-              onMouseMove={(event) => followMouse(event)}
-            >
-              {item.title}
-            </li>
-          ))}
-        </List>
-      </InterestBox>
+      {data.map((category: CategoryProps) => (
+        <InterestBox>
+          <Title>{category.title}</Title>
+          <List>
+            {category.items.map((item: ItemProps) =>  {
+              if (item.url) {
+                return (
+                  <li key={item.id}>
+                    <a href={item.url} target="_blank" title={item.title}>
+                      {item.title}
+                    </a>
+                  </li>
+                );
+              }
 
-      <InterestBox>
-        <Title>Series I'd really enjoy</Title>
-        <List>
-          {data.shows.map((item) => (
-            <li
-              key={item.id}
-              onMouseEnter={() => hoverImage(item.image)}
-              onMouseLeave={() => hoverImage(false)}
-              onMouseMove={(event) => followMouse(event)}
-            >
-              {item.title}
-            </li>
-          ))}
-        </List>
-      </InterestBox>
-
-      <InterestBox>
-        <Title>Most valuable bookmarks</Title>
-        <List>
-          {data.links.map((item) => (
-            <li key={item.id}>
-              <a href={item.url} target="_blank" title={item.title}>
-                {item.title}
-              </a>
-            </li>
-          ))}
-        </List>
-      </InterestBox>
+              return (
+                <li
+                  key={item.id}
+                  onMouseEnter={() => hoverImage(item.image)}
+                  onMouseLeave={() => hoverImage(false)}
+                  onMouseMove={(event) => followMouse(event)}
+                >
+                  {item.title}
+                </li>
+              );
+            })}
+          </List>
+        </InterestBox>
+      ))}
     </InterestsContainer>
   );
+}
+
+type ItemProps = {
+  id: number;
+  title: string;
+  image?: string;
+  url?: string;
+}
+
+type CategoryProps = {
+  title: string;
+  items: Array<ItemProps>;
 }
 
 export default Interests;

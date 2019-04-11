@@ -1,3 +1,4 @@
 import { createContext } from 'react';
+import * as t from 'types';
 
-export const ColorContext = createContext<string | 'purple' | 'white'>('');
+export const ColorContext = createContext<t.ColorType>('purple');

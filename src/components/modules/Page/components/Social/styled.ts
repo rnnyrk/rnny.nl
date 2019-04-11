@@ -1,15 +1,20 @@
 import styled, { css } from 'styled-components';
 import { media } from 'styles/utils';
+import * as t from 'types';
 
-import { Anchor } from 'common/Anchor';
+import { Anchor } from 'common';
 
 type SocialListProps = {
-  variant: '' | 'purple' | 'white'; // losse type van maken
+  variant?: t.ColorType;
 }
 
 export const SocialList = styled.div<SocialListProps>`
   display: flex;
-  align-items: center;
+  padding: 0 30px;
+
+  ${media.tablet`
+    align-items: center;
+  `}
 
   svg,
   ${Anchor} {
@@ -26,13 +31,19 @@ export const SocialList = styled.div<SocialListProps>`
   }
 
   svg {
-    width: 25px;
-    height: 25px;
-    margin-right: 20px;
+    width: 30px;
+    height: 30px;
+    margin-right: 30px;
     cursor: pointer;
     fill: ${(props) => props.theme.white};
     opacity: .5;
     transition: opacity .2s;
+
+    ${media.tablet`
+      width: 25px;
+      height: 25px;
+      margin-right: 20px;
+    `}
 
     ${media.desktop`
       &:hover {

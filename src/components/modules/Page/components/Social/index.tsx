@@ -4,11 +4,10 @@ import Mail from 'vectors/mail.svg';
 import Linkedin from 'vectors/linkedin.svg';
 import Github from 'vectors/github.svg';
 import Twitter from 'vectors/twitter.svg';
-
 import { ColorContext } from 'services/context/ColorContext';
-import { Anchor } from 'common/Anchor';
-import Dialog from 'common/Dialog';
 
+import { Anchor, Dialog } from 'common';
+import Form from 'modules/Form';
 import { SocialList } from './styled';
 
 const Social = () => {
@@ -17,9 +16,12 @@ const Social = () => {
 
   return (
     <>
-      <Dialog isOpen={dialog} onClose={() => setDialog(false)} />
+      <Dialog isOpen={dialog} onClose={() => setDialog(false)}>
+        <Form />
+      </Dialog>
+
       <SocialList variant={currentColor}>
-        {/* <Mail onClick={() => setDialog(true)} /> */}
+        <Mail onClick={() => setDialog(true)} />
         <Anchor href="https://github.com/rnnyrk">
           <Github />
         </Anchor>

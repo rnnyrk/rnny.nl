@@ -11,6 +11,7 @@ export default {
       dark: '#272530',
     },
   ),
+  red: '#e54b4b',
   white: Object.assign(
     '#ffffff', {
       off: '#e6e5eb',

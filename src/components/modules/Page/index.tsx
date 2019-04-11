@@ -1,23 +1,33 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import Header from 'common/Header';
-
+import { checkMobileSize } from 'services/devices';
+import { Header, MobileMenu, Social } from './components';
 import { Canvas, Content, PageContainer } from './styled';
 
 const Page:FC<PageProps> = ({
   className, children, useCanvas, useGrid, ...props
 }) => {
   const canvasEl = useRef(null);
+  const [isMobile, setIsMobile] = useState(checkMobileSize());
 
   useEffect(() => {
     scaleGrid();
-
-    document.addEventListener('mousemove', moveGrid);
     window.addEventListener('resize', scaleGrid);
 
+    if (isMobile) {
+      document.addEventListener('touchmove', moveGrid, true);
+    } else {
+      document.addEventListener('mousemove', moveGrid, true);
+    }
+
     return () => {
-      document.addEventListener('mousemove', moveGrid);
+      if (isMobile) {
+        document.addEventListener('touchmove', moveGrid, true);
+      } else {
+        document.addEventListener('mousemove', moveGrid, true);
+      }
+
       window.addEventListener('resize', scaleGrid);
     }
   }, [props.location]);
@@ -25,6 +35,8 @@ const Page:FC<PageProps> = ({
   const scaleGrid = () => {
     const canvas = canvasEl.current;
     if (!canvas) return;
+
+    setIsMobile(checkMobileSize());
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -72,32 +84,30 @@ const Page:FC<PageProps> = ({
     ctx.stroke();
 
     // Draw navigation shapes
-    ctx.beginPath();
-    ctx.rect(
-      itemOffset,
-      canvas.height - (itemHeight + itemOffset),
-      itemWidth,
-      itemHeight,
-    );
-    ctx.fillStyle = '#9991bc';
-    ctx.fill();
-
-    // ctx.beginPath();
-    // ctx.rect(
-    //   canvas.width - (itemWidth + itemOffset),
-    //   canvas.height - (itemHeight + itemOffset),
-    //   itemWidth,
-    //   itemHeight,
-    // );
-    // ctx.fillStyle = '#272530';
-    // ctx.fill();
+    if (!isMobile) {
+      ctx.beginPath();
+      ctx.rect(
+        itemOffset,
+        canvas.height - (itemHeight + itemOffset),
+        itemWidth,
+        itemHeight,
+      );
+      ctx.fillStyle = '#9991bc';
+      ctx.fill();
+    }
 
     ctx.restore();
   }
 
   return (
     <PageContainer className={className}>
-      <Header />
+      <Header>
+        {isMobile ? (
+          <MobileMenu />
+        ) : (
+          <Social />
+        )}
+      </Header>
       <Content useGrid={useGrid}>
         {children}
       </Content>

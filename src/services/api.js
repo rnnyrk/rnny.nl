@@ -1,8 +1,19 @@
 import 'isomorphic-fetch';
 
+const getApiUrl = () => {
+  switch (process.env.APP_ENV) {
+    case 'production':
+      return 'https://api.rnny.nl';
+    case 'test':
+      return 'http://localhost:8888';
+    default:
+      return 'http://localhost:8888';
+  }
+};
+
 const request = ({ path, method, body }) => (
   new Promise((resolve, reject) => {
-    fetch(`http://localhost:8888${path}`, {
+    fetch(`${getApiUrl()}${path}`, {
       method,
       body: JSON.stringify(body),
       headers: {

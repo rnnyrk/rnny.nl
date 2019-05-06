@@ -1,11 +1,11 @@
 import React, { FC, useState } from 'react';
 
-import useWindowScrollPosition from 'services/hooks/windowScroll';
+import useWindowScroll from 'services/hooks/useWindowScroll';
 import { HeaderContainer, Letter, Name } from './styled';
 
 const Header:FC<HeaderProps> = ({ children }) => {
   const [scrolled, setScrolled] = useState(false);
-  const scrollY = useWindowScrollPosition();
+  const scrollY = useWindowScroll();
 
   if (scrollY >= 10 && !scrolled) {
     setScrolled(true);

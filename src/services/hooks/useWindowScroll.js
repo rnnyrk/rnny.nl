@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useWindowScrollPosition = () => {
+const useWindowScroll = () => {
   const [position, setPosition] = useState(window.pageYOffset);
 
   useEffect(() => {
@@ -18,4 +18,4 @@ const useWindowScrollPosition = () => {
   return position;
 }
 
-export default useWindowScrollPosition;
+export default useWindowScroll;

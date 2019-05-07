@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useSpring } from 'react-spring';
 
 import data from './data';
 import { checkTabletSize } from 'services/devices';
@@ -8,6 +9,11 @@ const Interests = () => {
   const [visible, setVisible] = useState(false);
   const imageEl = useRef(null);
   const interestsEl = useRef(null);
+
+  const { transform, opacity } = useSpring({
+    opacity: visible ? 1 : 0,
+    transform: `scale(${visible ? 1 : 1.2}`,
+  });
 
   const hoverImage = (image) => {
     if (image) {
@@ -19,7 +25,7 @@ const Interests = () => {
   };
 
   const followMouse = (event) => {
-    if (checkTabletSize()) return;
+    if (checkTabletSize()) return false;
 
     const interestsRect = interestsEl.current.getBoundingClientRect();
 
@@ -34,7 +40,7 @@ const Interests = () => {
       {!checkTabletSize() && (
         <HoverImage
           ref={imageEl}
-          pose={visible ? 'visible' : 'hidden'}
+          style={{ opacity, transform }}
         />
       )}
 

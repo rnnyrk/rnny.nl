@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import { media } from 'styles/utils';
+import { animated } from 'react-spring';
 
 export const InterestsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   position: relative;
+  z-index: 3;
   margin-top: 30px;
 
   ${media.tablet`
@@ -28,28 +30,10 @@ export const InterestBox = styled.div`
   `}
 `;
 
-// export const HoverImage = styled(posed.img({
-//   visible: {
-//     opacity: 1,
-//     scale: 1,
-//   },
-//   hidden: {
-//     opacity: 0,
-//     scale: 1.2,
-//   },
-// }))`
-//   position: absolute;
-//   max-width: 150px;
-//   z-index: ${(props) => props.pose === 'visible' ? 3 : 1};
-//   margin: 0;
-//   border: 6px solid ${(props) => props.theme.white};
-//   box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
-// `;
-
-export const HoverImage = styled.img`
+export const HoverImage = styled(animated.img)`
   position: absolute;
-  max-width: 150px;
   z-index: 1;
+  max-width: 150px;
   margin: 0;
   border: 6px solid ${(props) => props.theme.white};
   box-shadow: 0 2px 4px rgba(0, 0, 0, .1);

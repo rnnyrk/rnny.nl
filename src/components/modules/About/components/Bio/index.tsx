@@ -12,7 +12,7 @@ const Bio = () => (
       </Photo>
       <Title>Hi, I’m Ronny! <Wave>👋</Wave></Title>
     </BioHeader>
-    <p>I’m a JavaScript developer from Amsterdam, the Netherlands 🇳🇱. I’ve got a passion for design, kitesurfing, running, (oldskool) hiphop, (web) performance and - cutting-egde - web technologies such as React (Native), Progressive Web Apps, Styled Components and CSS Grid. This website is build using Webpack, Typescript, React Hooks, React Pose &amp; CSS Grid.</p>
+    <p>I’m a JavaScript developer from Amsterdam, the Netherlands 🇳🇱. I’ve got a passion for design, kitesurfing, running, (oldskool) hiphop, (web) performance and - cutting-egde - web technologies such as React (Native), Progressive Web Apps, Styled Components and CSS Grid. This website is build using Webpack, Typescript, React Hooks, React Spring &amp; CSS Grid.</p>
   </BioContainer>
 );
 

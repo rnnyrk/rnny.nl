@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { media } from 'styles/utils';
+import { animated } from 'react-spring';
 
 export const Years = styled.div`
   display: flex;
@@ -54,26 +55,10 @@ export const YearNumber = styled.div<YearNumberProps>`
 `;
 
 type ContentProps = {
-  visible: boolean;
+  dangerouslySetInnerHTML: object;
 }
 
-// export const Content = styled(posed.div({
-//   visible: {
-//     opacity: 1,
-//     top: '0px',
-//   },
-//   hidden: {
-//     top: '30px',
-//     opacity: 0,
-//   },
-// }))<ContentProps>`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-// `;
-
-export const Content = styled.div<ContentProps>`
+export const Content = styled(animated.div)`
   position: absolute;
   top: 0;
   left: 0;

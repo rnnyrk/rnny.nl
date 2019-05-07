@@ -9,7 +9,7 @@ type PageLinkProps = {
 const PageLink = styled(Link)<PageLinkProps>`
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   bottom: 0;
   left: 0;
   padding: 20px 30px;

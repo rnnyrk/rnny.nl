@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import posed from 'react-pose';
 
 export const Fieldset = styled.div`
   flex-basis: 100%;
@@ -9,16 +8,30 @@ export const Fieldset = styled.div`
   margin-bottom: 35px;
 `;
 
-export const Label = styled(posed.label({
-  default: {
-    y: '11px',
-    cursor: 'text',
-  },
-  focus: {
-    y: '-20px',
-    cursor: 'pointer',
-  }
-}))`
+// export const Label = styled(posed.label({
+//   default: {
+//     y: '11px',
+//     cursor: 'text',
+//   },
+//   focus: {
+//     y: '-20px',
+//     cursor: 'pointer',
+//   }
+// }))`
+//   flex-basis: 100%;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   position: absolute;
+//   top: 0;
+//   left: 15px;
+//   font-weight: 700;
+//   font-size: 14px;
+//   font-family: ${(props) => props.theme.font.mono};
+//   text-transform: uppercase;
+// `;
+
+export const Label = styled.label`
   flex-basis: 100%;
   display: flex;
   justify-content: space-between;

@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { media } from 'styles/utils';
-import posed from 'react-pose';
 
 export const Years = styled.div`
   display: flex;
@@ -58,16 +57,23 @@ type ContentProps = {
   visible: boolean;
 }
 
-export const Content = styled(posed.div({
-  visible: {
-    opacity: 1,
-    top: '0px',
-  },
-  hidden: {
-    top: '30px',
-    opacity: 0,
-  },
-}))<ContentProps>`
+// export const Content = styled(posed.div({
+//   visible: {
+//     opacity: 1,
+//     top: '0px',
+//   },
+//   hidden: {
+//     top: '30px',
+//     opacity: 0,
+//   },
+// }))<ContentProps>`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+// `;
+
+export const Content = styled.div<ContentProps>`
   position: absolute;
   top: 0;
   left: 0;

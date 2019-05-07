@@ -6,8 +6,12 @@ export type PageProps = {
 }
 
 export const PageContainer = styled.section<PageProps>`
-  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
   min-height: 100vh;
+  display: flex;
   background: linear-gradient(
     135deg,
     ${(props) => props.theme.white.off},

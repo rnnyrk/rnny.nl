@@ -1,16 +1,25 @@
-import React, { FC, useState, useEffect } from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom';
-import { PoseGroup } from 'react-pose';
-import GlobalStyle from 'styles';
+import React, { useState, useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { useTransition } from 'react-spring';
+
 import * as t from 'types';
+import GlobalStyle from 'styles';
 
 import { ColorContext } from 'services/context/ColorContext';
-import { PoseContainer } from 'common/Animation';
+import useRouter from 'services/hooks/useRouter';
 import Home from 'modules/Home';
 import About from 'modules/About';
+import { AnimationWrapper } from 'common';
 
-const App:FC<AppProps> = ({ location }) => {
+const App = () => {
   const [color, setColor] = useState<t.ColorType>('purple');
+
+  const { location } = useRouter();
+  const transitions = useTransition(location, (location) => location.pathname, {
+    from: { opacity: 0, transform: 'translate3d(100vw, 0, 0)' },
+    enter: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+    leave: { opacity: 0, transform: 'translate3d(-20vw, 0, 0)' },
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -25,31 +34,18 @@ const App:FC<AppProps> = ({ location }) => {
   return (
     <>
       <GlobalStyle />
-      <Route
-        render={({ location }) => (
-          <ColorContext.Provider value={color}>
-            <PoseGroup preEnterPose="before">
-              <PoseContainer key={location.pathname}>
-                <Switch location={location}>
-                  <Route
-                    exact
-                    path="/"
-                    render={(props) => <Home {...props} />}
-                  />
-                  <Route
-                    path="/about"
-                    render={(props) => <About {...props} />}
-                  />
-                </Switch>
-              </PoseContainer>
-            </PoseGroup>
-          </ColorContext.Provider>
-        )}
-      />
+      <ColorContext.Provider value={color}>
+        {transitions.map(({ item, props, key }) => (
+          <AnimationWrapper key={key} style={props}>
+            <Switch location={item}>
+              <Route exact path="/" render={Home} />
+              <Route path="/about" render={About} />
+            </Switch>
+          </AnimationWrapper>
+        ))}
+      </ColorContext.Provider>
     </>
   );
 }
 
-type AppProps = t.RouteComponentProps;
-
-export default withRouter(App);
+export default App;
